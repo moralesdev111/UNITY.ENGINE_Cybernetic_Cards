@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public abstract class SlotContainer : MonoBehaviour
 {
 	
-	protected List<Card> container;
+	[SerializeField] protected List<Card> container = new List<Card>();
 	public List<Card> Container
 	{
 		get { return container; }
@@ -21,11 +22,7 @@ public abstract class SlotContainer : MonoBehaviour
 		}
 	}
 
-	public int ContainerSizeLimit { get; protected set; }
-
-
-
-
+	public int ContainerSizeLimit { get; protected set; } = 5;
 
 	public void UpdateContainerSize()
 	{

@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static BattleTypeEnum;
 
 public class TriggerRandomEncounter : MonoBehaviour
 {
@@ -8,7 +10,7 @@ public class TriggerRandomEncounter : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-        if (Random.Range(1, 101) <= 15)
+        if (UnityEngine.Random.Range(1, 101) <= 15)
         {
 			Debug.Log("Random Encounter");
 
@@ -27,6 +29,7 @@ public class TriggerRandomEncounter : MonoBehaviour
 	private IEnumerator WaitAndLoadBattleScene()
 	{
 		yield return new WaitForSeconds(1.5f);
-		SceneHandling.Instance.LoadScene(1);
+		DataManager.Instance.battleTypeEnum.SetBattleType(BattleType.Wild);
+		DataManager.Instance.GetSceneHandling.LoadScene(1);
 	}
 }

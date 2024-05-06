@@ -14,8 +14,6 @@ public class CardInstance : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI manaCost;
 	[SerializeField] private TextMeshProUGUI attack;
 	[SerializeField] private TextMeshProUGUI health;
-	public int healthInstanceMaxHealth;
-	public int healthInstanceCurrentHealth;
 
 	// Start is called before the first frame update
 	void Start()
@@ -26,25 +24,15 @@ public class CardInstance : MonoBehaviour
 		}
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-	[ExecuteAlways]
-	private void SetInspectorName()
-	{
-		this.name = card.cardName;
-	}
 
 	public void SetCardUI()
 	{
 		cardName.text = card.cardName;
 		artworkImage.sprite = card.artwork;
-		cardBack.sprite = card.artworkBack;
+		//cardBack.sprite = card.artworkBack;
 		manaCost.text = card.manaCost.ToString();
 		attack.text = card.attack.ToString();
-		health.text = healthInstanceCurrentHealth.ToString();
+		health.text = card.health.ToString();
 	}
 
 }

@@ -1,27 +1,32 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneHandling : MonoBehaviour
+[CreateAssetMenu(fileName = "Scene Handling")]
+public class SceneHandling : ScriptableObject
 {
-    // Start is called before the first frame update
-    public static SceneHandling Instance { get; private set; }
+	public event Action onBattleSceneLoaded;
 
-	private void Awake()
+	private void OnEnable()
 	{
-        if(Instance == null)
-        {
-			Instance = this;
-			DontDestroyOnLoad(gameObject);
-		}       
-        if(Instance != null)
-        {
-            Destroy(this);
-        }
+		SceneManager.sceneLoaded += OnSceneLoaded;
+	}
+	private void OnDisable()
+	{
+		SceneManager.sceneLoaded -= OnSceneLoaded;
 	}
 	public void LoadScene(int sceneId)
     {
         SceneManager.LoadScene(sceneId);
     }
+
+	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+	{
+		if(scene.name == "Battle")
+		{
+			onBattleSceneLoaded();
+		}		
+	}
 }
