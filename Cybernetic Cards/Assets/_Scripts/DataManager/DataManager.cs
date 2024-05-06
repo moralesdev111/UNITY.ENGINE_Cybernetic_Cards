@@ -20,4 +20,13 @@ public class DataManager : MonoBehaviour
 			Instance = this;
 		}		
 	}
+
+	private void Update()
+	{
+		// REMOVE FROM GAME DEBUGGING TOOL
+		if(Input.GetKey(KeyCode.Space))
+		{
+			sceneHandling.LoadScene(1);
+		}
+	}
 }

@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Battlefield
+  - Hand
   layers:
   - Default
   - TransparentFX
