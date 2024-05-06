@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ManaManager : MonoBehaviour
+[CreateAssetMenu(fileName = "Mana Manager")]
+public class ManaManager : ScriptableObject
 {
 	[SerializeField] private TurnSystem turnSystem;
 

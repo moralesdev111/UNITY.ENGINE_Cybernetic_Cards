@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7344767216268027058}
   - component: {fileID: 7618849516322426893}
   - component: {fileID: 8387806411731856809}
+  - component: {fileID: 912679719178509485}
   m_Layer: 5
   m_Name: Hand
   m_TagString: Hand
@@ -60,7 +61,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8627451}
+  m_Color: {r: 0.6981132, g: 0.68304956, b: 0.55651474, a: 0.27058825}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -116,6 +117,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   container: []
+  battlefield: {fileID: 4830814194475819898}
+--- !u!114 &912679719178509485
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 635013106570734735}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5acfc028952b8ad409798ce81340cf26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manaManager: {fileID: 11400000, guid: 653c022a7f6321142b5419d43451ed46, type: 2}
 --- !u!1 &648490874369248343
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,8 +161,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2781724214045763453}
   - {fileID: 7422535360879009693}
+  - {fileID: 2781724214045763453}
   - {fileID: 331320699253445375}
   m_Father: {fileID: 2195906436071043151}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -177,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.33708617, g: 0.5744813, b: 0.9528302, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -462,7 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5246529, g: 0.65182465, b: 0.8490566, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -937,8 +952,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4225467503784534988}
   - {fileID: 6985795690897859895}
+  - {fileID: 4225467503784534988}
   - {fileID: 5398888341627406787}
   m_Father: {fileID: 4519717683203754327}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -968,7 +983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9716981, g: 0.56376827, b: 0.56376827, a: 1}
+  m_Color: {r: 0.95686275, g: 0.9607843, b: 0.5294118, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -997,6 +1012,7 @@ GameObject:
   - component: {fileID: 3931484836757621415}
   - component: {fileID: 2743839152884600799}
   - component: {fileID: 1035934695460780097}
+  - component: {fileID: 1418583496428858130}
   m_Layer: 5
   m_Name: PlayerBattlefield
   m_TagString: Battlefield
@@ -1044,7 +1060,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5246529, g: 0.65182465, b: 0.8490566, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1087,6 +1103,19 @@ MonoBehaviour:
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &1418583496428858130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4773279904618124937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5acfc028952b8ad409798ce81340cf26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manaManager: {fileID: 11400000, guid: 653c022a7f6321142b5419d43451ed46, type: 2}
 --- !u!1 &5291338145534634719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1147,7 +1176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.8627451}
+  m_Color: {r: 0.6981132, g: 0.68304956, b: 0.55651474, a: 0.27058825}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1203,6 +1232,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   container: []
+  battlefield: {fileID: 4830814194475819898}
 --- !u!1 &5438596931251527491
 GameObject:
   m_ObjectHideFlags: 0
@@ -1746,8 +1776,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7755156412914398943}
-  - {fileID: 4427796486923079849}
   - {fileID: 3286656130528181256}
+  - {fileID: 4427796486923079849}
   m_Father: {fileID: 4519717683203754327}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1776,7 +1806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.5310609, g: 0.9622642, b: 0.6203866, a: 1}
+  m_Color: {r: 0.95662135, g: 0.9607843, b: 0.5294118, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

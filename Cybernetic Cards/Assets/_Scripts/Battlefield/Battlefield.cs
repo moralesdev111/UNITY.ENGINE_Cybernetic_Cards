@@ -35,8 +35,8 @@ public class Battlefield : MonoBehaviour
 	}
 	public void SetupHandParentTransforms()
     {
-		playerHandTransform = myTransform.GetChild(0).GetChild(0).GetChild(0).GetComponent<RectTransform>();
-		opponentHandTransform = myTransform.GetChild(0).GetChild(1).GetChild(0).GetComponent<RectTransform>();
+		playerHandTransform = myTransform.GetChild(0).GetChild(1).GetChild(0).GetComponent<RectTransform>();
+		opponentHandTransform = myTransform.GetChild(0).GetChild(0).GetChild(1).GetComponent<RectTransform>();
 	}
 
 	private void InstantiatePlayerAndOpponentCards()

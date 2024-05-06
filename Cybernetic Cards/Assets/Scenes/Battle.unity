@@ -394,51 +394,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e804ef08bc359e8498d40314e8146497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1294070177
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1294070179}
-  - component: {fileID: 1294070178}
-  m_Layer: 0
-  m_Name: ManaManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1294070178
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1294070177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4936e770d3a35dd4db3a91dfad1d0175, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  turnSystem: {fileID: 1215600265}
---- !u!4 &1294070179
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1294070177}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 478.58112, y: 257.9879, z: 0.13771075}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1553500723
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,17 +521,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2119969712 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4830814194475819898, guid: 9f22448df7571e84a8279c9f0e72f52e, type: 3}
-  m_PrefabInstance: {fileID: 450608893929158933}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c967d2cf20d90d4b89513705d0a80d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &450608893929158933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -677,14 +621,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BattlefieldCanvas
       objectReference: {fileID: 0}
-    - target: {fileID: 7399454944625602229, guid: 9f22448df7571e84a8279c9f0e72f52e, type: 3}
-      propertyPath: battlefield
-      value: 
-      objectReference: {fileID: 2119969712}
-    - target: {fileID: 8387806411731856809, guid: 9f22448df7571e84a8279c9f0e72f52e, type: 3}
-      propertyPath: battlefield
-      value: 
-      objectReference: {fileID: 2119969712}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -884,4 +820,3 @@ SceneRoots:
   - {fileID: 589284245}
   - {fileID: 1061480517}
   - {fileID: 2606183428422624761}
-  - {fileID: 1294070179}

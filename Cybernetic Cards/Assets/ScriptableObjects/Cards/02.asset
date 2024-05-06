@@ -15,6 +15,6 @@ MonoBehaviour:
   cardName: 02
   artwork: {fileID: 0}
   artworkBack: {fileID: 0}
-  manaCost: 1
+  manaCost: 2
   attack: 1
   health: 1
