@@ -10,12 +10,17 @@ public class TriggerRandomEncounter : MonoBehaviour
 
 	private void OnTriggerEnter(Collider other)
 	{
-        if (UnityEngine.Random.Range(1, 101) <= 15)
-        {
+		PossibleBattleEncounter(other);
+	}
+
+	private void PossibleBattleEncounter(Collider other)
+	{
+		if (UnityEngine.Random.Range(1, 101) <= 15)
+		{
 			Debug.Log("Random Encounter");
 
 			if (other.gameObject.CompareTag(targetType))
-            {				
+			{
 				Player player = other.gameObject.GetComponent<Player>();
 				if (player != null)
 				{
@@ -23,7 +28,7 @@ public class TriggerRandomEncounter : MonoBehaviour
 					StartCoroutine(WaitAndLoadBattleScene());
 				}
 			}
-        }
+		}
 	}
 
 	private IEnumerator WaitAndLoadBattleScene()

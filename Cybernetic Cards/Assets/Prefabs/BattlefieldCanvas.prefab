@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5acfc028952b8ad409798ce81340cf26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSystem: {fileID: 6381056865805432561, guid: 233a72fbf52b37f448f020d8bf88d6fc, type: 3}
+  battlefield: {fileID: 4830814194475819898}
 --- !u!1 &648490874369248343
 GameObject:
   m_ObjectHideFlags: 0
@@ -1115,7 +1115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5acfc028952b8ad409798ce81340cf26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSystem: {fileID: 6381056865805432561, guid: 233a72fbf52b37f448f020d8bf88d6fc, type: 3}
+  battlefield: {fileID: 4830814194475819898}
 --- !u!1 &5291338145534634719
 GameObject:
   m_ObjectHideFlags: 0

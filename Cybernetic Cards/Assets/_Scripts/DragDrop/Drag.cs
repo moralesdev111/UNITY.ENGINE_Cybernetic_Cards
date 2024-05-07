@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
 	public Transform originalParent = null;
-	private Card card;
+	private CardInstance cardInstance;
 	private bool canDrag = false;
 	private TurnSystem turnSystem;
 
@@ -17,16 +17,15 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
 	public void OnBeginDrag(PointerEventData eventData)
 	{
-		card = GetComponent<CardInstance>().card;
-		if(GetComponent<CardInstance>().currentCardState != CardInstance.CardState.battlefield && card.manaCost <= turnSystem.currentMana)
-		{
+		cardInstance = GetComponent<CardInstance>();
+		if(cardInstance.GetCurrentCardState != CardInstance.CardState.battlefield && cardInstance.card.manaCost <= turnSystem.currentMana)
+		{// if card is not in battlefield and we have enough mana we can drag
 			canDrag = true;
-			Debug.Log(card.name);
 			originalParent = transform.parent;
 			transform.SetParent(transform.root);
 			GetComponent<CanvasGroup>().blocksRaycasts = false;
 		}
-		else
+		else // we cant drag
 		{
 			canDrag = false;
 			return;
@@ -38,7 +37,7 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 	{
 		if (canDrag)
 		{
-			transform.position = eventData.position;
+			transform.position = eventData.position; // update card position to match mouse
 		}
 		else
 		{
@@ -49,7 +48,7 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 
 	public void OnEndDrag(PointerEventData eventData)
 	{
-		if(canDrag)
+		if(canDrag) // at end of drag set new parent
 		{
 			transform.SetParent(originalParent);
 			GetComponent<CanvasGroup>().blocksRaycasts = true;

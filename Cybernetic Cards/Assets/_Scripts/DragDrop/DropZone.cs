@@ -7,6 +7,8 @@ using UnityEngine.UI;
 public class DropZone : MonoBehaviour, IDropHandler
 {
 	private TurnSystem turnSystem;
+	[SerializeField] private Battlefield battlefield;
+	private CardInstance cardInstance;
 
 	private void Start()
 	{
@@ -16,22 +18,27 @@ public class DropZone : MonoBehaviour, IDropHandler
 	public void OnDrop(PointerEventData eventData)
 	{
 		Drag drag = eventData.pointerDrag.GetComponent<Drag>();
-		if (drag != null && eventData.pointerDrag.GetComponent<CardInstance>().card.manaCost <= turnSystem.currentMana)
+		cardInstance = eventData.pointerDrag.GetComponent<CardInstance>();
+		if (drag != null && cardInstance.card.manaCost <= turnSystem.currentMana && cardInstance.GetCurrentCardState != CardInstance.CardState.battlefield) // if we have enough mana
 		{
 			drag.originalParent = transform; // set new parent origin
 			
-			if(gameObject.CompareTag("Battlefield"))
+			if(gameObject.CompareTag("Battlefield")) // if we drag on top of battlefield
 			{
-				turnSystem.currentMana -= eventData.pointerDrag.GetComponent<CardInstance>().card.manaCost;
-				eventData.pointerDrag.GetComponent<CardInstance>().currentCardState = CardInstance.CardState.battlefield;
+
+				turnSystem.currentMana -= cardInstance.card.manaCost;
+				cardInstance.SetCurrentCardState(CardInstance.CardState.battlefield);
+				battlefield.GetPlayerHand.Container.Remove(cardInstance.card);
 			}
-			else if(gameObject.CompareTag("Hand"))
+
+			else if(gameObject.CompareTag("Hand")) // if we drag on top of hand
 			{
-				if(eventData.pointerDrag.GetComponent<CardInstance>().currentCardState != CardInstance.CardState.battlefield)
+
+				if(cardInstance.GetCurrentCardState != CardInstance.CardState.battlefield)
 				{
-					eventData.pointerDrag.GetComponent<CardInstance>().currentCardState = CardInstance.CardState.hand;
-				}
-				
+					cardInstance.SetCurrentCardState(CardInstance.CardState.hand);
+				}				
+
 			}
 		}		
 	}

@@ -22,14 +22,17 @@ public class CardInstance : MonoBehaviour
 		battlefield,
 		corrupted
 	}
-	public CardState currentCardState;
+
+	[SerializeField] private CardState currentCardState;
+	public CardState GetCurrentCardState {  get { return currentCardState; } }
+	public void SetCurrentCardState(CardState state) {  currentCardState = state; }
+
 	// Start is called before the first frame update
 	void Start()
     {
 		if(card != null)
 		{
 			SetCardUI();
-			//currentCardState = CardState.party;
 		}
     }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerHand : SlotContainer
 {
 	[SerializeField] private Battlefield battlefield;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +24,7 @@ public class PlayerHand : SlotContainer
 				Card card = DataManager.Instance.GetPlayerParty.Container[i];
 				GameObject playerCard = Instantiate(battlefield.GetCardPrefab, battlefield.GetPlayerHandTransform);
 				playerCard.GetComponent<CardInstance>().card = DataManager.Instance.GetPlayerParty.Container[i];
-				playerCard.GetComponent<CardInstance>().currentCardState = CardInstance.CardState.hand;
+				playerCard.GetComponent<CardInstance>().SetCurrentCardState(CardInstance.CardState.hand);
 				Container.Add(card);
 			}
 		}
