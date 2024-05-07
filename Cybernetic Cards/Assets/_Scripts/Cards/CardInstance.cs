@@ -15,12 +15,21 @@ public class CardInstance : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI attack;
 	[SerializeField] private TextMeshProUGUI health;
 
+	public enum CardState
+	{
+		party,
+		hand,
+		battlefield,
+		corrupted
+	}
+	public CardState currentCardState;
 	// Start is called before the first frame update
 	void Start()
     {
 		if(card != null)
 		{
 			SetCardUI();
+			//currentCardState = CardState.party;
 		}
     }
 

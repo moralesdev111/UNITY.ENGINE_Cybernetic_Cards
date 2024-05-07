@@ -34,6 +34,12 @@ public class TurnSystem : MonoBehaviour
 		UpdateManaText(); // also need to update on card play 
 	}
 
+	private void Update()
+	{
+		manaText.text = currentMana + "/" + maxMana;
+		opponentManaText.text = opponentCurrentMana + "/" + opponentMaxMana;
+	}
+
 	private void UpdateManaText()
 	{
 		manaText.text = currentMana + "/" + maxMana;
@@ -77,7 +83,7 @@ public class TurnSystem : MonoBehaviour
 		opponentTurnNumber = 0;
 
 		maxMana = 1;
-		currentMana = 1;
+		currentMana = maxMana;
 
 		opponentCurrentMana = 0;
 		opponentMaxMana = 0;

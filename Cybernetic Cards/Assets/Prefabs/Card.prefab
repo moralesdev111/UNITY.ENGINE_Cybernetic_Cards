@@ -664,10 +664,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89b09db52bac6c2458e7b9d3e1d79dbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placeHolder: {fileID: 0}
-  setSiblingIndex: {fileID: 0}
-  defaultParent: {fileID: 0}
-  placeHolderParent: {fileID: 0}
+  originalParent: {fileID: 0}
+  turnSystem: {fileID: 6381056865805432561, guid: 233a72fbf52b37f448f020d8bf88d6fc, type: 3}
 --- !u!225 &2862523791439005931
 CanvasGroup:
   m_ObjectHideFlags: 0

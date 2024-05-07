@@ -23,6 +23,7 @@ public class PlayerHand : SlotContainer
 				Card card = DataManager.Instance.GetPlayerParty.Container[i];
 				GameObject playerCard = Instantiate(battlefield.GetCardPrefab, battlefield.GetPlayerHandTransform);
 				playerCard.GetComponent<CardInstance>().card = DataManager.Instance.GetPlayerParty.Container[i];
+				playerCard.GetComponent<CardInstance>().currentCardState = CardInstance.CardState.hand;
 				Container.Add(card);
 			}
 		}
