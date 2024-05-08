@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -26,6 +27,9 @@ public class TurnSystem : MonoBehaviour
     public int opponentMaxMana;
     public int opponentCurrentMana;
 	public TextMeshProUGUI opponentManaText;
+
+	//public delegate void EndTurnDelegate(bool opponentTurn);
+	//public EndTurnDelegate onEndTurn;
 
 	// Start is called before the first frame update
 	void Start()
@@ -58,6 +62,7 @@ public class TurnSystem : MonoBehaviour
 		opponentCurrentMana = maxMana;
 
 		UpdateManaText();
+		//onEndTurn?.Invoke(!isPlayerTurn);
 	}
 
     public void EndOpponentTurn()
@@ -72,6 +77,7 @@ public class TurnSystem : MonoBehaviour
         currentMana = maxMana;
 
 		UpdateManaText();
+		//onEndTurn?.Invoke(isPlayerTurn);
 	}
 
 	private void FirstTurnLogistics()

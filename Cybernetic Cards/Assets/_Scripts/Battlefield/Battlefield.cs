@@ -17,6 +17,9 @@ public class Battlefield : MonoBehaviour
 	private OpponentParty opponentParty;
 	public OpponentParty GetOpponentParty { get {  return opponentParty; } }
 	private Transform myTransform;
+	[SerializeField] private TurnSystem turnSystem;
+	public TurnSystem GetTurnSystem { get {  return turnSystem; } }
+	[SerializeField] private GameObject opponentBattlefield;
 
 	private void OnEnable()
 	{
@@ -32,6 +35,14 @@ public class Battlefield : MonoBehaviour
 	{
 		opponentParty = GameObject.FindObjectOfType<OpponentParty>();
 		InstantiatePlayerAndOpponentCards();
+	}
+
+	private void Update()
+	{
+		if(opponentHand.Container.Count == 0 && opponentBattlefield.transform.childCount == 0) 
+		{
+			DataManager.Instance.GetSceneHandling.LoadScene(0);
+		}
 	}
 	public void SetupHandParentTransforms()
     {

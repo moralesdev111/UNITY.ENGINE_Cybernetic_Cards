@@ -6,6 +6,7 @@ public class OpponentHand : SlotContainer
 {
 	[SerializeField] private Battlefield battlefield;
 	private List<GameObject> instantiatedCards = new List<GameObject>();
+	private string tagName = "Opponent";
 
 	// Start is called before the first frame update
 	void Start()
@@ -28,6 +29,7 @@ public class OpponentHand : SlotContainer
 				opponentCard.GetComponent<CardInstance>().SetCurrentCardState(CardInstance.CardState.hand);
 				Container.Add(card);
 				instantiatedCards.Add(opponentCard);
+				opponentCard.tag = tagName;
 			}
 		}
 	}
