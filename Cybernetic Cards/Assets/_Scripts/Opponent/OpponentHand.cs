@@ -5,6 +5,8 @@ using UnityEngine;
 public class OpponentHand : SlotContainer
 {
 	[SerializeField] private Battlefield battlefield;
+	private List<GameObject> instantiatedCards = new List<GameObject>();
+
 	// Start is called before the first frame update
 	void Start()
 	{
@@ -23,7 +25,9 @@ public class OpponentHand : SlotContainer
 				Card card = battlefield.GetOpponentParty.Container[i];
 				GameObject opponentCard = Instantiate(battlefield.GetCardPrefab, battlefield.GetOpponentHandTransform);
 				opponentCard.GetComponent<CardInstance>().card = battlefield.GetOpponentParty.Container[i];
+				opponentCard.GetComponent<CardInstance>().SetCurrentCardState(CardInstance.CardState.hand);
 				Container.Add(card);
+				instantiatedCards.Add(opponentCard);
 			}
 		}
 	}
@@ -35,4 +39,10 @@ public class OpponentHand : SlotContainer
 			Container.Remove(card);
 		}
 	}
+
+	public List<GameObject> GetInstantiatedCards()
+	{
+		return instantiatedCards;
+	}
+
 }
