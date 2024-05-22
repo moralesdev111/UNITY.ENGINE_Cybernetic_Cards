@@ -355,11 +355,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &639867043 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3190959255040584202, guid: 9f22448df7571e84a8279c9f0e72f52e, type: 3}
-  m_PrefabInstance: {fileID: 450608893929158933}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1009805274 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7399454944625602229, guid: 9f22448df7571e84a8279c9f0e72f52e, type: 3}
@@ -643,10 +638,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1215600265}
-    - target: {fileID: 4830814194475819898, guid: 9f22448df7571e84a8279c9f0e72f52e, type: 3}
-      propertyPath: opponentBattlefield
-      value: 
-      objectReference: {fileID: 639867043}
     - target: {fileID: 6250236928800321301, guid: 9f22448df7571e84a8279c9f0e72f52e, type: 3}
       propertyPath: m_Name
       value: BattlefieldCanvas
@@ -737,6 +728,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OpponentParty
       objectReference: {fileID: 0}
+    - target: {fileID: 3266266006461581510, guid: a6bf708368bd089498bf6eda11d6d701, type: 3}
+      propertyPath: cardCodex
+      value: 
+      objectReference: {fileID: 11400000, guid: 33a8b2ba57a22614bac87c0990ab0d28, type: 2}
     - target: {fileID: 3266266006461581510, guid: a6bf708368bd089498bf6eda11d6d701, type: 3}
       propertyPath: container.Array.data[0]
       value: 

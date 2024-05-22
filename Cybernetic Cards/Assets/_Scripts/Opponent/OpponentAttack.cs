@@ -5,13 +5,22 @@ using UnityEngine;
 
 public class OpponentAttack : MonoBehaviour
 {
-	[SerializeField] Transform playerBattlefield;
-	[SerializeField] Transform opponentBattlefield;
-	[SerializeField] TurnSystem turnSystem;
-	
-	public bool readyToAttack = false;
-	public bool attackExecuted = false;
+	[SerializeField] private Transform playerBattlefield;
+	[SerializeField] private Transform opponentBattlefield;
+	[SerializeField] private TurnSystem turnSystem;
 
+	private bool readyToAttack = false;
+	public bool ReadyToAttack
+	{
+		get { return readyToAttack; }
+		set { readyToAttack = value; }
+	}
+	private bool attackExecuted = false;
+	public bool AttackExecuted
+	{
+		get { return attackExecuted; }
+		set { attackExecuted = value; }
+	}
 
 
 	void Update()

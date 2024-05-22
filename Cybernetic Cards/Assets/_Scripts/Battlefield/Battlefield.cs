@@ -52,7 +52,7 @@ public class Battlefield : MonoBehaviour
 
 	private void InstantiatePlayerAndOpponentCards()
 	{
-		if (DataManager.Instance && DataManager.Instance.battleTypeEnum.GetBattleType == BattleTypeEnum.BattleType.Wild)
+		if (DataManager.Instance && DataManager.Instance.BattleTypeEnum.GetBattleType == BattleTypeEnum.BattleType.Wild)
 		{
 			playerHand.HandSetup();
 			opponentHand.HandSetup();

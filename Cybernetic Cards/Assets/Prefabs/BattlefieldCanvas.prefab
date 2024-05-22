@@ -1392,6 +1392,7 @@ MonoBehaviour:
   playerHand: {fileID: 8387806411731856809}
   opponentHand: {fileID: 7399454944625602229}
   turnSystem: {fileID: 6381056865805432561, guid: 233a72fbf52b37f448f020d8bf88d6fc, type: 3}
+  opponentBattlefield: {fileID: 3190959255040584202}
 --- !u!114 &8168908179064225139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1416,10 +1417,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54acba91507eb404f9746d418b36fedd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  battlingCards:
-  - {fileID: 0}
-  - {fileID: 0}
-  canBattle: 0
   battlefieldParent: {fileID: 0}
 --- !u!1 &6517650865864477885
 GameObject:

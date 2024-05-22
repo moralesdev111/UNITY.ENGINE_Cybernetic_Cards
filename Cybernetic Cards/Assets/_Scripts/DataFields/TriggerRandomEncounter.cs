@@ -34,7 +34,7 @@ public class TriggerRandomEncounter : MonoBehaviour
 	private IEnumerator WaitAndLoadBattleScene()
 	{
 		yield return new WaitForSeconds(1.5f);
-		DataManager.Instance.battleTypeEnum.SetBattleType(BattleType.Wild);
+		DataManager.Instance.BattleTypeEnum.SetBattleType(BattleType.Wild);
 		DataManager.Instance.GetSceneHandling.LoadScene(1);
 	}
 }

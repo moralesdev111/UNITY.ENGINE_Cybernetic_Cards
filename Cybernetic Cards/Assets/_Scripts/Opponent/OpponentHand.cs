@@ -25,7 +25,7 @@ public class OpponentHand : SlotContainer
 			{
 				Card card = battlefield.GetOpponentParty.Container[i];
 				GameObject opponentCard = Instantiate(battlefield.GetCardPrefab, battlefield.GetOpponentHandTransform);
-				opponentCard.GetComponent<CardInstance>().card = battlefield.GetOpponentParty.Container[i];
+				opponentCard.GetComponent<CardInstance>().card = battlefield.GetOpponentParty.RandomizeOpponentCard();
 				opponentCard.GetComponent<CardInstance>().SetCurrentCardState(CardInstance.CardState.hand);
 				Container.Add(card);
 				instantiatedCards.Add(opponentCard);

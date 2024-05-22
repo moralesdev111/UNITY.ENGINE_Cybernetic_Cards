@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class BattleChecker : MonoBehaviour
 {
-	public CardInstance[] battlingCards = new CardInstance[2];
-	public bool canBattle = false;
-	public Transform battlefieldParent;
+	private CardInstance[] battlingCards = new CardInstance[2];
+	public CardInstance[] BattlingCards { get { return battlingCards; } }
+	private bool canBattle = false;
+	[SerializeField] private Transform battlefieldParent;
 
-	// Start is called before the first frame update
-	void Start()
-	{
-
-	}
 
 	private void Update()
 	{
@@ -28,7 +24,7 @@ public class BattleChecker : MonoBehaviour
 		Debug.Log("battle started");
 		defender.cardInstanceCurrentHealth -= attacker.card.attack;
 		attacker.cardInstanceCurrentHealth -= defender.card.attack;
-		attacker.GetComponent<CardAttack>().canAttack = false;
+		attacker.GetComponent<CardAttack>().SetCanAttack(false);
 
 		ClearBattlingCards();
 		canBattle = false;

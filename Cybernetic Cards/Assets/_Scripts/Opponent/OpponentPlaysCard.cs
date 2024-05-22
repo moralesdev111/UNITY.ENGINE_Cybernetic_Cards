@@ -12,20 +12,19 @@ public class OpponentPlaysCard : MonoBehaviour
 	private bool hasPlayedCard = false;
 
 
-
 	void Update()
 	{
 		if (turnSystem.currentTurnState == TurnStatus.player)
 		{
 			hasPlayedCard = false;
-			opponentAttack.attackExecuted = false;
+			opponentAttack.AttackExecuted = false;
 		}
 		if (!hasPlayedCard && turnSystem.currentTurnState == TurnStatus.opponent)
 		{
 			PlayCard();
 			hasPlayedCard = true;
-			opponentAttack.readyToAttack = true;
-			opponentAttack.attackExecuted = false;
+			opponentAttack.ReadyToAttack = true;
+			opponentAttack.AttackExecuted = false;
 		}
 	}
 
@@ -52,7 +51,6 @@ public class OpponentPlaysCard : MonoBehaviour
 				Card chosenCard = opponentHand.Container[i];
 				GameObject physicalCard = opponentHand.GetInstantiatedCards()[i];
 				physicalCard.transform.SetParent(opponentBattlefield);
-				Debug.Log("KEY");
 
 				AssignCardInstance(chosenCard, physicalCard);
 				opponentHand.Container.Remove(chosenCard);
