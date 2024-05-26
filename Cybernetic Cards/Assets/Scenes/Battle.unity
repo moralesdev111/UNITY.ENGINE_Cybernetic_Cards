@@ -729,13 +729,9 @@ PrefabInstance:
       value: OpponentParty
       objectReference: {fileID: 0}
     - target: {fileID: 3266266006461581510, guid: a6bf708368bd089498bf6eda11d6d701, type: 3}
-      propertyPath: cardCodex
-      value: 
-      objectReference: {fileID: 11400000, guid: 33a8b2ba57a22614bac87c0990ab0d28, type: 2}
-    - target: {fileID: 3266266006461581510, guid: a6bf708368bd089498bf6eda11d6d701, type: 3}
       propertyPath: container.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: f92e5fe1bb93d2f49aab184575a052d0, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 6282243570653975569, guid: a6bf708368bd089498bf6eda11d6d701, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

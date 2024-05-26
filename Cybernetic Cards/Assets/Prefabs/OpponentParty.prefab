@@ -47,7 +47,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   container:
-  - {fileID: 11400000, guid: 7021e9e7ee4b29b468ef6a42c095eb28, type: 2}
+  - {fileID: 11400000, guid: f92e5fe1bb93d2f49aab184575a052d0, type: 2}
+  cardCodex: {fileID: 11400000, guid: 33a8b2ba57a22614bac87c0990ab0d28, type: 2}
 --- !u!114 &9096019605394516048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,5 +80,3 @@ MonoBehaviour:
   playerBattlefield: {fileID: 0}
   opponentBattlefield: {fileID: 0}
   turnSystem: {fileID: 6381056865805432561, guid: 233a72fbf52b37f448f020d8bf88d6fc, type: 3}
-  readyToAttack: 0
-  attackExecuted: 0

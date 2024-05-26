@@ -23,10 +23,12 @@ public class OpponentHand : SlotContainer
 		{
 			for (int i = 0; i < cardsToSpawn; i++)
 			{
-				Card card = battlefield.GetOpponentParty.Container[i];
+				Container.Clear();
+				Card card = battlefield.GetOpponentParty.RandomizeOpponentCard();
 				GameObject opponentCard = Instantiate(battlefield.GetCardPrefab, battlefield.GetOpponentHandTransform);
-				opponentCard.GetComponent<CardInstance>().card = battlefield.GetOpponentParty.RandomizeOpponentCard();
+				opponentCard.GetComponent<CardInstance>().card = card;
 				opponentCard.GetComponent<CardInstance>().SetCurrentCardState(CardInstance.CardState.hand);
+				battlefield.GetOpponentParty.Container[0] = card;
 				Container.Add(card);
 				instantiatedCards.Add(opponentCard);
 				opponentCard.tag = tagName;

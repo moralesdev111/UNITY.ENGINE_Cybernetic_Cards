@@ -5,7 +5,7 @@ using UnityEngine;
 public class OpponentParty : SlotContainer
 {
 	[SerializeField] private CardCodex cardCodex;
-	private Card card;
+	public Card card;
 
 	private void Start()
 	{

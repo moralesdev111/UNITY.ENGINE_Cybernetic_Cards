@@ -8,6 +8,8 @@ using UnityEngine.SceneManagement;
 public class SceneHandling : ScriptableObject
 {
 	public event Action onBattleSceneLoaded;
+	public event Action onSandboxSceneLoaded;
+
 
 	private void OnEnable()
 	{
@@ -24,9 +26,25 @@ public class SceneHandling : ScriptableObject
 
 	private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
 	{
-		if(scene.name == "Battle")
+		if (scene.name == "Sandbox")
 		{
-			onBattleSceneLoaded();
-		}		
+			SandboxSceneLoadActions();
+		}
+		if (scene.name == "Battle")
+		{
+			BattleSceneLoadActions();
+		}
+	}
+
+	private void BattleSceneLoadActions()
+	{
+		onBattleSceneLoaded();
+		Debug.Log("Scene1 load");
+	}
+
+	private void SandboxSceneLoadActions()
+	{
+		onSandboxSceneLoaded();
+		Debug.Log("Scene0 load");
 	}
 }
