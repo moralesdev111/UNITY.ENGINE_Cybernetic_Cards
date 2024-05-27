@@ -36,20 +36,20 @@ public class OpponentAttack : MonoBehaviour
 						StartCoroutine(DelayAction());
 						readyToAttack = false;
 						attackExecuted = true;
-						//StartCoroutine(DelayAction3());
+						StartCoroutine(DelayAction3());
 					}
 					else
 					{
 						StartCoroutine(DelayAction2());
 						readyToAttack = false;
 						attackExecuted = true;
-						//StartCoroutine(DelayAction3());
+						StartCoroutine(DelayAction3());
 					}
 				}
 			}
 			else
 			{
-				//StartCoroutine(DelayAction3());
+				StartCoroutine(DelayAction3());
 			}
 		}
 	}
@@ -91,6 +91,12 @@ public class OpponentAttack : MonoBehaviour
 		return selectedCard;
 	}
 
+	private void EndTurn()
+	{
+		Debug.Log("end turn");
+		turnSystem.EndOpponentTurn();
+	}
+
 	IEnumerator DelayAction()
 	{
 		yield return new WaitForSeconds(3.5f);
@@ -103,15 +109,11 @@ public class OpponentAttack : MonoBehaviour
 		AttackCard();
 	}
 
-	//private void EndTurnManager()
-	//{
-	//	turnSystem.EndOpponentTurn();
-	//}
-	//IEnumerator DelayAction3()
-	//{
-	//	yield return new WaitForSeconds(7f);
-	//	EndTurnManager();
-	//}
+	IEnumerator DelayAction3()
+	{
+		yield return new WaitForSeconds(4f);
+		EndTurn();
+	}
 
 	//IEnumerator ChangeColorToBlack()
 	//{

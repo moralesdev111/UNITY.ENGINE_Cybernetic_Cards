@@ -20,12 +20,32 @@ public class CardAttack : MonoBehaviour, IPointerClickHandler
 	{
 		if (canAttack && cardInstance.GetCurrentCardState == CardInstance.CardState.battlefield && battlefield.GetTurnSystem.currentTurnState == TurnStatus.player)
 		{
-			battlefield.GetComponent<BattleChecker>().BattlingCards[0] = cardInstance;
+			if (battlefield.GetCover.GetComponent<Cover>().hasTresspassed)
+			{
+				if (canAttack && cardInstance.GetCurrentCardState == CardInstance.CardState.battlefield && battlefield.GetTurnSystem.currentTurnState == TurnStatus.player)
+				{
+					battlefield.GetComponent<BattleChecker>().BattlingCards[0] = cardInstance;
+				}
+				if (battlefield.GetComponent<BattleChecker>().BattlingCards[0] != null && gameObject.tag == "Opponent")
+				{
+					battlefield.GetComponent<BattleChecker>().BattlingCards[1] = cardInstance;
+				}
+			}
+			else
+			{ //LEFT OFF
+				if (canAttack && cardInstance.GetCurrentCardState == CardInstance.CardState.battlefield && battlefield.GetTurnSystem.currentTurnState == TurnStatus.player)
+				{
+					battlefield.GetComponent<BattleChecker>().BattlingCards[0] = cardInstance;
+				}
+				if (battlefield.GetComponent<BattleChecker>().BattlingCards[0] != null && transform.GetComponent<Cover>())
+				{
+					transform.GetComponent<Cover>().CurrentHealth -= cardInstance.card.attack;
+				}
+			}
 		}
-		if (battlefield.GetComponent<BattleChecker>().BattlingCards[0] != null && gameObject.tag == "Opponent")
-		{
-			battlefield.GetComponent<BattleChecker>().BattlingCards[1] = cardInstance;
-		}
+			
+		
+		
 	}
 
 	private void Update()

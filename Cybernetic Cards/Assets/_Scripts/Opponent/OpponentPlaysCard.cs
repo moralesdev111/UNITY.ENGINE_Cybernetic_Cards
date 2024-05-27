@@ -11,14 +11,20 @@ public class OpponentPlaysCard : MonoBehaviour
 	[SerializeField] OpponentAttack opponentAttack;
 	private bool hasPlayedCard = false;
 
-
-	void Update()
+	private void OnEnable()
 	{
-		if (turnSystem.currentTurnState == TurnStatus.player)
-		{
-			hasPlayedCard = false;
-			opponentAttack.AttackExecuted = false;
-		}
+		turnSystem.onPlayerTurnEnd += OpponentTurnLogistics;
+		turnSystem.onOpponentTurnEnd += PlayerTurnLogistics;
+	}
+
+	private void OnDisable()
+	{
+		turnSystem.onPlayerTurnEnd -= OpponentTurnLogistics;
+		turnSystem.onOpponentTurnEnd -= PlayerTurnLogistics;
+	}
+
+	private void OpponentTurnLogistics()
+	{
 		if (!hasPlayedCard && turnSystem.currentTurnState == TurnStatus.opponent)
 		{
 			PlayCard();
@@ -28,15 +34,20 @@ public class OpponentPlaysCard : MonoBehaviour
 		}
 	}
 
+	private void PlayerTurnLogistics()
+	{
+		if (turnSystem.currentTurnState == TurnStatus.player)
+		{
+			hasPlayedCard = false;
+			opponentAttack.AttackExecuted = false;
+		}
+	}
+
 	private void PlayCard()
 	{
 		if (turnSystem.opponentCurrentMana > 0)
 		{
 			StartCoroutine(DelayAction());
-		}
-		else
-		{
-			return;
 		}
 	}
 
@@ -60,7 +71,7 @@ public class OpponentPlaysCard : MonoBehaviour
 		}
 		if (!foundPlayableCard)
 		{
-			//tur.EndOpponentTurn();
+			turnSystem.EndOpponentTurn();
 			Debug.Log("No card is playable");
 		}
 	}

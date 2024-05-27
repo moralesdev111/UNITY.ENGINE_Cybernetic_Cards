@@ -28,8 +28,8 @@ public class TurnSystem : MonoBehaviour
     public int opponentCurrentMana;
 	public TextMeshProUGUI opponentManaText;
 
-	//public delegate void EndTurnDelegate(bool opponentTurn);
-	//public EndTurnDelegate onEndTurn;
+	public event Action onPlayerTurnEnd;
+	public event Action onOpponentTurnEnd;
 
 	// Start is called before the first frame update
 	void Start()
@@ -42,6 +42,7 @@ public class TurnSystem : MonoBehaviour
 	{
 		manaText.text = currentMana + "/" + maxMana;
 		opponentManaText.text = opponentCurrentMana + "/" + opponentMaxMana;
+		UpdateTurnText();
 	}
 
 	private void UpdateManaText()
@@ -55,14 +56,14 @@ public class TurnSystem : MonoBehaviour
         currentTurnState = TurnStatus.opponent;
 		isPlayerTurn = false;
 
-		turnOwnerText.text = "Opponent Turn";
+		//turnOwnerText.text = "Opponent Turn";
 		opponentTurnNumber += 1;
 
 		opponentMaxMana += 1;
 		opponentCurrentMana = maxMana;
 
-		UpdateManaText();
-		//onEndTurn?.Invoke(!isPlayerTurn);
+		//UpdateManaText();
+		onPlayerTurnEnd?.Invoke();
 	}
 
     public void EndOpponentTurn()
@@ -70,19 +71,19 @@ public class TurnSystem : MonoBehaviour
 		currentTurnState = TurnStatus.player;
 		isPlayerTurn = true;
 
-		turnOwnerText.text = "Player Turn";
+		//turnOwnerText.text = "Player Turn";
 		playerTurnNumber += 1;
 
         maxMana += 1;
         currentMana = maxMana;
 
-		UpdateManaText();
-		//onEndTurn?.Invoke(isPlayerTurn);
+		//UpdateManaText();
+		onOpponentTurnEnd?.Invoke();
 	}
 
 	private void FirstTurnLogistics()
 	{
-		turnOwnerText.text = "Player Turn";
+		//turnOwnerText.text = "Player Turn";
 		currentTurnState = TurnStatus.player;
 		isPlayerTurn = true;
 		playerTurnNumber = 1;
@@ -93,5 +94,10 @@ public class TurnSystem : MonoBehaviour
 
 		opponentCurrentMana = 0;
 		opponentMaxMana = 0;
+	}
+
+	private void UpdateTurnText()
+	{
+		turnOwnerText.text = currentTurnState == TurnStatus.player ? "Player Turn" : "Opponent Turn";
 	}
 }

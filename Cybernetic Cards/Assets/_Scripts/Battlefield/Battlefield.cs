@@ -21,9 +21,14 @@ public class Battlefield : MonoBehaviour
 	public TurnSystem GetTurnSystem { get {  return turnSystem; } }
 	[SerializeField] private GameObject opponentBattlefield;
 
+	private Transform cover;
+	public Transform GetCover { get { return cover; } }
+
+
 	private void OnEnable()
 	{
 		myTransform = GetComponent<Transform>();
+		cover = myTransform.GetChild(0).GetChild(0).GetChild(3);
 		DataManager.Instance.GetSceneHandling.onBattleSceneLoaded += SetupHandParentTransforms; // if weird errors unsubscribe on scene unloaded or on destroy
 	}
 	private void OnDisable()
