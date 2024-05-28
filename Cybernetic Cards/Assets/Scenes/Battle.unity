@@ -545,10 +545,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 691660853034383606, guid: 9f22448df7571e84a8279c9f0e72f52e, type: 3}
-      propertyPath: m_TagString
-      value: Cover
-      objectReference: {fileID: 0}
     - target: {fileID: 2195906436071043151, guid: 9f22448df7571e84a8279c9f0e72f52e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -629,10 +625,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2267809481335652729, guid: 9f22448df7571e84a8279c9f0e72f52e, type: 3}
-      propertyPath: battlefield
-      value: 
-      objectReference: {fileID: 450608893929158935}
     - target: {fileID: 3547635657909428161, guid: 9f22448df7571e84a8279c9f0e72f52e, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -663,17 +655,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6985795690897859895, guid: 9f22448df7571e84a8279c9f0e72f52e, type: 3}
   m_PrefabInstance: {fileID: 450608893929158933}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &450608893929158935 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4830814194475819898, guid: 9f22448df7571e84a8279c9f0e72f52e, type: 3}
-  m_PrefabInstance: {fileID: 450608893929158933}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c967d2cf20d90d4b89513705d0a80d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2606183428422624761
 PrefabInstance:
   m_ObjectHideFlags: 0

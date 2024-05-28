@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 2267809481335652729}
   m_Layer: 5
   m_Name: Cover
-  m_TagString: Untagged
+  m_TagString: Cover
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -320,6 +320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 2
   hasTresspassed: 0
+  battlefield: {fileID: 4830814194475819898}
 --- !u!1 &902672682073539765
 GameObject:
   m_ObjectHideFlags: 0
