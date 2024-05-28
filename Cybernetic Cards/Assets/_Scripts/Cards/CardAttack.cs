@@ -18,11 +18,11 @@ public class CardAttack : MonoBehaviour, IPointerClickHandler
 	}
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		if (canAttack && cardInstance.GetCurrentCardState == CardInstance.CardState.battlefield && battlefield.GetTurnSystem.currentTurnState == TurnStatus.player)
+		if (canAttack && cardInstance.GetCurrentCardState == CardInstance.CardState.battlefield && battlefield.TurnState.currentTurnState == TurnState.TurnStates.playerTurn)
 		{
 			if (battlefield.GetCover.GetComponent<Cover>().hasTresspassed)
 			{
-				if (canAttack && cardInstance.GetCurrentCardState == CardInstance.CardState.battlefield && battlefield.GetTurnSystem.currentTurnState == TurnStatus.player)
+				if (canAttack && cardInstance.GetCurrentCardState == CardInstance.CardState.battlefield && battlefield.TurnState.currentTurnState == TurnState.TurnStates.playerTurn)
 				{
 					battlefield.GetComponent<BattleChecker>().BattlingCards[0] = cardInstance;
 				}
@@ -33,7 +33,7 @@ public class CardAttack : MonoBehaviour, IPointerClickHandler
 			}
 			else
 			{ //LEFT OFF
-				if (canAttack && cardInstance.GetCurrentCardState == CardInstance.CardState.battlefield && battlefield.GetTurnSystem.currentTurnState == TurnStatus.player)
+				if (canAttack && cardInstance.GetCurrentCardState == CardInstance.CardState.battlefield && battlefield.TurnState.currentTurnState == TurnState.TurnStates.playerTurn)
 				{
 					battlefield.GetComponent<BattleChecker>().BattlingCards[0] = cardInstance;
 				}
@@ -50,7 +50,7 @@ public class CardAttack : MonoBehaviour, IPointerClickHandler
 
 	private void Update()
 	{
-		ResetAttackFlag(battlefield.GetTurnSystem.isPlayerTurn);
+		ResetAttackFlag(battlefield.GetGameSettings.isPlayerTurn);
 	}
 
 	private void ResetAttackFlag(bool opponentTurn)
@@ -59,7 +59,7 @@ public class CardAttack : MonoBehaviour, IPointerClickHandler
 		{
 			canAttack = true;
 		}
-		else if (battlefield.GetTurnSystem.currentTurnState == TurnStatus.opponent)
+		else if (battlefield.TurnState.currentTurnState == TurnState.TurnStates.opponentTurn)
 		{
 			canAttack = false;
 		}

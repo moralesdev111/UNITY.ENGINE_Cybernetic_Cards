@@ -8,17 +8,17 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 	public Transform originalParent = null;
 	private CardInstance cardInstance;
 	private bool canDrag = false;
-	private TurnSystem turnSystem;
+	private TurnSystemSettings gameSettings;
 
 	private void Start()
 	{
-		turnSystem = GameObject.FindObjectOfType<TurnSystem>();
+		gameSettings = GameObject.FindObjectOfType<TurnSystemSettings>();
 	}
 
 	public void OnBeginDrag(PointerEventData eventData)
 	{
 		cardInstance = GetComponent<CardInstance>();
-		if(cardInstance.GetCurrentCardState != CardInstance.CardState.battlefield && cardInstance.card.manaCost <= turnSystem.currentMana)
+		if(cardInstance.GetCurrentCardState != CardInstance.CardState.battlefield && cardInstance.card.manaCost <= gameSettings.currentMana)
 		{// if card is not in battlefield and we have enough mana we can drag
 			canDrag = true;
 			originalParent = transform.parent;

@@ -6,27 +6,27 @@ using UnityEngine.UI;
 
 public class DropZone : MonoBehaviour, IDropHandler
 {
-	private TurnSystem turnSystem;
+	private TurnSystemSettings gameSettings;
 	[SerializeField] private Battlefield battlefield;
 	private CardInstance cardInstance;
 
 	private void Start()
 	{
-		turnSystem = GameObject.FindObjectOfType<TurnSystem>();
+		gameSettings = GameObject.FindObjectOfType<TurnSystemSettings>();
 	}
 
 	public void OnDrop(PointerEventData eventData)
 	{
 		Drag drag = eventData.pointerDrag.GetComponent<Drag>();
 		cardInstance = eventData.pointerDrag.GetComponent<CardInstance>();
-		if (drag != null && cardInstance.card.manaCost <= turnSystem.currentMana && cardInstance.GetCurrentCardState != CardInstance.CardState.battlefield) // if we have enough mana
+		if (drag != null && cardInstance.card.manaCost <= gameSettings.currentMana && cardInstance.GetCurrentCardState != CardInstance.CardState.battlefield) // if we have enough mana
 		{
 			drag.originalParent = transform; // set new parent origin
 			
 			if(gameObject.CompareTag("Battlefield")) // if we drag on top of battlefield
 			{
 
-				turnSystem.currentMana -= cardInstance.card.manaCost;
+				gameSettings.currentMana -= cardInstance.card.manaCost;
 				cardInstance.SetCurrentCardState(CardInstance.CardState.battlefield);
 				battlefield.GetPlayerHand.Container.Remove(cardInstance.card);
 			}

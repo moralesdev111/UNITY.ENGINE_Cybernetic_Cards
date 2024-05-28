@@ -17,12 +17,18 @@ public class Battlefield : MonoBehaviour
 	private OpponentParty opponentParty;
 	public OpponentParty GetOpponentParty { get {  return opponentParty; } }
 	private Transform myTransform;
-	[SerializeField] private TurnSystem turnSystem;
-	public TurnSystem GetTurnSystem { get {  return turnSystem; } }
-	[SerializeField] private GameObject opponentBattlefield;
+	[SerializeField] private TurnSystemSettings gameSettings;
+	public TurnSystemSettings GetGameSettings { get {  return gameSettings; } }
+	[SerializeField] private Transform opponentBattlefield;
+	public Transform GetOpponentBattlefield { get { return opponentBattlefield; } }
 
 	private Transform cover;
 	public Transform GetCover { get { return cover; } }
+	[SerializeField] private TurnState turnState;
+	public TurnState TurnState { get { return turnState; } }
+
+	
+	
 
 
 	private void OnEnable()

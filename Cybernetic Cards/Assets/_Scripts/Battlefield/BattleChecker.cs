@@ -7,7 +7,7 @@ public class BattleChecker : MonoBehaviour
 	private CardInstance[] battlingCards = new CardInstance[2];
 	public CardInstance[] BattlingCards { get { return battlingCards; } }
 	private bool canBattle = false;
-	[SerializeField] private Transform battlefieldParent;
+
 
 
 	private void Update()

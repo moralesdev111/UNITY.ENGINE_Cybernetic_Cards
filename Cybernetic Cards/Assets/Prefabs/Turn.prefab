@@ -9,7 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2953959742448547447}
-  - component: {fileID: 6381056865805432561}
+  - component: {fileID: 6567866407182281777}
+  - component: {fileID: 8143683849982899772}
+  - component: {fileID: 1977175407802115016}
+  - component: {fileID: 40596308015701272}
+  - component: {fileID: 2281688380380884960}
   m_Layer: 0
   m_Name: Turn
   m_TagString: Untagged
@@ -32,7 +36,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6381056865805432561
+--- !u!114 &6567866407182281777
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,17 +45,76 @@ MonoBehaviour:
   m_GameObject: {fileID: 1728500578853170436}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e804ef08bc359e8498d40314e8146497, type: 3}
+  m_Script: {fileID: 11500000, guid: 22796265fba8a304eb6656c52c447ed0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   currentTurnState: 0
-  isPlayerTurn: 0
-  playerTurnNumber: 0
-  opponentTurnNumber: 0
-  turnOwnerText: {fileID: 0}
+--- !u!114 &8143683849982899772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728500578853170436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80adea6b328d149469bc12c41505c07c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnSystemSettings: {fileID: 1977175407802115016}
+  playerHand: {fileID: 0}
+  opponentHand: {fileID: 0}
+  turnState: {fileID: 6567866407182281777}
+  turnText: {fileID: 0}
+--- !u!114 &1977175407802115016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728500578853170436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ab9fdac1e986a34ebe820a5953c49c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   maxMana: 0
   currentMana: 0
-  manaText: {fileID: 0}
+  startTurn: 0
+  isPlayerTurn: 0
+  playerTurn: 0
+  opponentTurn: 0
   opponentMaxMana: 0
   opponentCurrentMana: 0
+--- !u!114 &40596308015701272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728500578853170436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aacf02f7de0da5b4da900371cc588235, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnState: {fileID: 6567866407182281777}
+  manaText: {fileID: 0}
   opponentManaText: {fileID: 0}
+  turnSystemSettings: {fileID: 1977175407802115016}
+  endTurnLogistics: {fileID: 8143683849982899772}
+--- !u!114 &2281688380380884960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728500578853170436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a71a54ee62635f9458259fe9e5b03375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  turnState: {fileID: 6567866407182281777}
+  turnActions: {fileID: 40596308015701272}
+  turnSystemSettings: {fileID: 1977175407802115016}

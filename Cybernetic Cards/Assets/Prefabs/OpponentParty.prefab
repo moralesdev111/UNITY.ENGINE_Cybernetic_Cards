@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6282243570653975569}
   - component: {fileID: 3266266006461581510}
-  - component: {fileID: 9096019605394516048}
-  - component: {fileID: 6894609308303533182}
+  - component: {fileID: 2866508851637365047}
   m_Layer: 0
   m_Name: OpponentParty
   m_TagString: Untagged
@@ -47,9 +46,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   container:
-  - {fileID: 11400000, guid: f92e5fe1bb93d2f49aab184575a052d0, type: 2}
+  - {fileID: 11400000, guid: a13c836b9d4d07b4ea05015165e0cfb2, type: 2}
   cardCodex: {fileID: 11400000, guid: 33a8b2ba57a22614bac87c0990ab0d28, type: 2}
---- !u!114 &9096019605394516048
+  card: {fileID: 0}
+--- !u!114 &2866508851637365047
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -58,25 +58,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 167011693399098625}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 283d657cfefe0074ba1e02ba28d171cf, type: 3}
+  m_Script: {fileID: 11500000, guid: 86e5533aaa9ac1942a0ce83f6cc55b86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnSystem: {fileID: 0}
+  turnState: {fileID: 0}
+  gameSettings: {fileID: 0}
   opponentHand: {fileID: 0}
   opponentBattlefield: {fileID: 0}
-  opponentAttack: {fileID: 6894609308303533182}
---- !u!114 &6894609308303533182
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 167011693399098625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c1c1e34f5086434fb0a99cefe9a4c61, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   playerBattlefield: {fileID: 0}
-  opponentBattlefield: {fileID: 0}
-  turnSystem: {fileID: 6381056865805432561, guid: 233a72fbf52b37f448f020d8bf88d6fc, type: 3}
+  turnManager: {fileID: 0}
+  readyToAttack: 0
+  attackExecuted: 0
