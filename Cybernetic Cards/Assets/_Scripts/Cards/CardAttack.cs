@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static TurnState;
 
 public class CardAttack : MonoBehaviour, IPointerClickHandler
 {
@@ -18,34 +19,14 @@ public class CardAttack : MonoBehaviour, IPointerClickHandler
 	}
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		if (canAttack && cardInstance.GetCurrentCardState == CardInstance.CardState.battlefield && battlefield.TurnState.currentTurnState == TurnState.TurnStates.playerTurn)
+		if (canAttack && cardInstance.GetCurrentCardState == CardInstance.CardState.battlefield && battlefield.TurnState.currentTurnState == TurnStates.playerTurn)
 		{
-			if (battlefield.GetCover.GetComponent<Cover>().hasTresspassed)
-			{
-				if (canAttack && cardInstance.GetCurrentCardState == CardInstance.CardState.battlefield && battlefield.TurnState.currentTurnState == TurnState.TurnStates.playerTurn)
-				{
-					battlefield.GetComponent<BattleChecker>().BattlingCards[0] = cardInstance;
-				}
-				if (battlefield.GetComponent<BattleChecker>().BattlingCards[0] != null && gameObject.tag == "Opponent")
-				{
-					battlefield.GetComponent<BattleChecker>().BattlingCards[1] = cardInstance;
-				}
-			}
-			else
-			{ //LEFT OFF
-				if (canAttack && cardInstance.GetCurrentCardState == CardInstance.CardState.battlefield && battlefield.TurnState.currentTurnState == TurnState.TurnStates.playerTurn)
-				{
-					battlefield.GetComponent<BattleChecker>().BattlingCards[0] = cardInstance;
-				}
-				if (battlefield.GetComponent<BattleChecker>().BattlingCards[0] != null && transform.GetComponent<Cover>())
-				{
-					transform.GetComponent<Cover>().CurrentHealth -= cardInstance.card.attack;
-				}
-			}
+			battlefield.GetComponent<BattleChecker>().BattlingCards[0] = cardInstance;
 		}
-			
-		
-		
+		if (battlefield.GetCover.GetComponent<Cover>().hasTresspassed && canAttack && battlefield.GetComponent<BattleChecker>().BattlingCards[0] != null && gameObject.tag == "Opponent")
+		{
+			battlefield.GetComponent<BattleChecker>().BattlingCards[1] = cardInstance;
+		}
 	}
 
 	private void Update()

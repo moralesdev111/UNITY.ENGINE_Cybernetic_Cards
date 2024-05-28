@@ -17,4 +17,4 @@ MonoBehaviour:
   artworkBack: {fileID: 0}
   manaCost: 3
   attack: 1
-  health: 4
+  health: 8

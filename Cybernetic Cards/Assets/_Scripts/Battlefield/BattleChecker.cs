@@ -30,7 +30,7 @@ public class BattleChecker : MonoBehaviour
 		canBattle = false;
 	}
 
-	void ClearBattlingCards()
+	public void ClearBattlingCards()
 	{
 		Debug.Log("Battle Finished");
 		for (int i = 0; i < battlingCards.Length; i++)
