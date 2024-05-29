@@ -23,10 +23,18 @@ public class CardAttack : MonoBehaviour, IPointerClickHandler
 		{
 			battlefield.GetComponent<BattleChecker>().BattlingCards[0] = cardInstance;
 		}
-		if (battlefield.GetCover.GetComponent<Cover>().hasTresspassed && canAttack && battlefield.GetComponent<BattleChecker>().BattlingCards[0] != null && gameObject.tag == "Opponent")
+		if(battlefield.GetCover.gameObject.activeInHierarchy)
 		{
-			battlefield.GetComponent<BattleChecker>().BattlingCards[1] = cardInstance;
+			if (battlefield.GetCover.GetComponent<Cover>().hasTresspassed && canAttack && battlefield.GetComponent<BattleChecker>().BattlingCards[0] != null && gameObject.tag == "Opponent")
+			{
+				battlefield.GetComponent<BattleChecker>().BattlingCards[1] = cardInstance;
+			}
 		}
+		else if(battlefield.GetComponent<BattleChecker>().BattlingCards[0] != null && gameObject.tag == "Opponent")	
+			{
+			battlefield.GetComponent<BattleChecker>().BattlingCards[1] = cardInstance;
+			}
+		
 	}
 
 	private void Update()

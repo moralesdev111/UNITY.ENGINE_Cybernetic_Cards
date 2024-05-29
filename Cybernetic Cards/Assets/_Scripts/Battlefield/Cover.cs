@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 public class Cover : MonoBehaviour, IPointerClickHandler
 {
-	public event Action onHealthChanged;
+	public event Action onCoverHealthChanged;
 	private int currentHealth;
 	public int CurrentHealth
 	{
@@ -12,7 +12,7 @@ public class Cover : MonoBehaviour, IPointerClickHandler
 		set
 		{
 			currentHealth = value;
-			onHealthChanged?.Invoke();
+			onCoverHealthChanged?.Invoke();
 		}
 	}
 
@@ -27,12 +27,12 @@ public class Cover : MonoBehaviour, IPointerClickHandler
 			gameObject.SetActive(false);
 		}
 		currentHealth = maxHealth;
-		onHealthChanged += OnHealthChanged;
+		onCoverHealthChanged += OnHealthChanged;
 	}
 
 	private void OnDestroy()
 	{
-		onHealthChanged -= OnHealthChanged;
+		onCoverHealthChanged -= OnHealthChanged;
 	}
 
 	private void OnHealthChanged()

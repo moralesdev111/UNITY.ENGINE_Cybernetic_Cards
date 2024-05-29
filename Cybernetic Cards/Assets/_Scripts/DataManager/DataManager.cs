@@ -19,6 +19,8 @@ public class DataManager : MonoBehaviour
 		get { return trainerParty; }
 		set { trainerParty = value; }
 	}
+	[SerializeField] private PlayerGraveyard playerGraveyard;
+	public PlayerGraveyard GetPlayerGraveyard { get { return playerGraveyard; } }
 
 
 	// Start is called before the first frame update

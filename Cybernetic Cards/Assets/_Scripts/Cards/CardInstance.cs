@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -14,8 +15,18 @@ public class CardInstance : MonoBehaviour
 	[SerializeField] private TextMeshProUGUI manaCost;
 	[SerializeField] private TextMeshProUGUI attack;
 	[SerializeField] private TextMeshProUGUI health;
-	public int cardInstanceMaxHealth;
-	public int cardInstanceCurrentHealth;
+	private int cardInstanceMaxHealth;
+	private int cardInstanceCurrentHealth;
+	public int CardInstanceCurrentHealth
+	{
+		get { return cardInstanceCurrentHealth; }
+		set 
+		{ 
+			cardInstanceCurrentHealth = value;
+			onCardHealthChanged?.Invoke();
+		}
+	}
+	public event Action onCardHealthChanged;
 
 	public enum CardState
 	{
@@ -34,21 +45,17 @@ public class CardInstance : MonoBehaviour
     {
 		if(card != null)
 		{
+			onCardHealthChanged += OnHealthChanged;
 			cardInstanceMaxHealth = card.health;
 			cardInstanceCurrentHealth = cardInstanceMaxHealth;
 			SetCardUI();
 		}
     }
 
-	private void Update()
+	private void OnDestroy()
 	{
-		health.text = cardInstanceCurrentHealth.ToString();
-		if (cardInstanceCurrentHealth < 1)
-		{
-			Destroy(gameObject);
-		}
+		onCardHealthChanged -= OnHealthChanged;
 	}
-
 	public void SetCardUI()
 	{
 		cardName.text = card.cardName;
@@ -58,5 +65,19 @@ public class CardInstance : MonoBehaviour
 		attack.text = card.attack.ToString();
 		health.text = card.health.ToString();
 	}
-
+	private void OnHealthChanged()
+	{
+		health.text = cardInstanceCurrentHealth.ToString();
+		if (cardInstanceCurrentHealth < 1)
+		{
+			if (tag == "Opponent")
+			{
+				Destroy(gameObject);
+				return;
+			}
+			DataManager.Instance.GetPlayerGraveyard.Container.Add(this.card);
+			DataManager.Instance.GetPlayerParty.Container.Remove(this.card);
+			Destroy(gameObject);
+		}
+	}
 }

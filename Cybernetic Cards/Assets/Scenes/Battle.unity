@@ -877,6 +877,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1061480517}
     m_Modifications:
+    - target: {fileID: 3335692284728129162, guid: be0afcf7b671819459a4e328509f439b, type: 3}
+      propertyPath: playerGraveyard.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335692284728129162, guid: be0afcf7b671819459a4e328509f439b, type: 3}
+      propertyPath: playerGraveyard.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335692284728129162, guid: be0afcf7b671819459a4e328509f439b, type: 3}
+      propertyPath: playerGraveyard.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7195832668888344999, guid: be0afcf7b671819459a4e328509f439b, type: 3}
       propertyPath: m_Name
       value: PlayerParty

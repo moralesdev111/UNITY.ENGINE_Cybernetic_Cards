@@ -22,8 +22,8 @@ public class BattleChecker : MonoBehaviour
 	public void Battle(CardInstance attacker, CardInstance defender)
 	{
 		Debug.Log("battle started");
-		defender.cardInstanceCurrentHealth -= attacker.card.attack;
-		attacker.cardInstanceCurrentHealth -= defender.card.attack;
+		defender.CardInstanceCurrentHealth -= attacker.card.attack;
+		attacker.CardInstanceCurrentHealth -= defender.card.attack;
 		attacker.GetComponent<CardAttack>().SetCanAttack(false);
 
 		ClearBattlingCards();

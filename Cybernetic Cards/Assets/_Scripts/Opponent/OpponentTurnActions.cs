@@ -137,8 +137,8 @@ public class OpponentTurnActions : MonoBehaviour
 		Transform selectedEnemyCard = ChooseRandomBattlefieldCard(playerBattlefield);
 		CardInstance defendingCard = selectedEnemyCard.GetComponent<CardInstance>();
 
-		defendingCard.cardInstanceCurrentHealth -= attackingCard.card.attack;
-		attackingCard.cardInstanceCurrentHealth -= defendingCard.card.attack;
+		defendingCard.CardInstanceCurrentHealth -= attackingCard.card.attack;
+		attackingCard.CardInstanceCurrentHealth -= defendingCard.card.attack;
 	}
 
 	private Transform ChooseRandomBattlefieldCard(Transform battlefieldOwner)
