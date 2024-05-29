@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneHandling: {fileID: 11400000, guid: 906fda250c296024f9723d928bec9a73, type: 2}
-  playerParty: {fileID: 3335692284728129162, guid: be0afcf7b671819459a4e328509f439b, type: 3}
+  playerParty: {fileID: 11400000, guid: 11928e0179386ed45b8882fea4972fb6, type: 2}
   battleTypeEnum: {fileID: 8168908179064225139, guid: 9f22448df7571e84a8279c9f0e72f52e, type: 3}
   trainerParty: {fileID: 0}
   playerGraveyard: {fileID: 5039688201000563146}

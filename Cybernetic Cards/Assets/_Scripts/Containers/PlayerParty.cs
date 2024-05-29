@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class PlayerParty : SlotContainer
+[CreateAssetMenu(fileName = "PlayerParty")]
+public class PlayerParty : ScriptableObject
 {
-	private void Start()
+	[SerializeField] private List<Card> container = new List<Card>();
+	public List<Card> Container
 	{
-		ContainerSizeLimit = 5;
+		get { return container; }
 	}
 }

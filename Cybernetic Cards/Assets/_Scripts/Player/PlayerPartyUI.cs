@@ -17,7 +17,6 @@ public class PlayerPartyUI : MonoBehaviour
 		{
 			myTransform = transform;
 			slotPrefabParentTransform = myTransform.GetChild(0).GetChild(0);
-			UpdatePartySlotUI();
 			DataManager.Instance.GetSceneHandling.onSandboxSceneLoaded += UpdatePartySlotUI;
 		}
 	}
