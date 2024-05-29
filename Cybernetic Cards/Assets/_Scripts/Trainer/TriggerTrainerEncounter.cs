@@ -27,7 +27,7 @@ public class TriggerTrainerEncounter : MonoBehaviour
 			player = null;
 			triggereable = false;
 			DataManager.Instance.Trainer = null;
-			DataManager.Instance.TrainerParty = null;
+			DataManager.Instance.OpponentPartyCards = null;
 			if (checkKeyInputCoroutine != null)
 			{
 				StopCoroutine(checkKeyInputCoroutine);
@@ -46,7 +46,7 @@ public class TriggerTrainerEncounter : MonoBehaviour
 				{
 					DataManager.Instance.BattleTypeEnum.SetBattleType(BattleType.Trainer);
 					DataManager.Instance.Trainer = this.gameObject;
-					DataManager.Instance.TrainerParty = opponentPartyCards;
+					DataManager.Instance.OpponentPartyCards = opponentPartyCards;
 					player.GetComponent<Player>().SetOverridePlayerControls(true);
 					StartCoroutine(WaitAndLoadBattleScene());
 					Debug.Log(DataManager.Instance.BattleTypeEnum.GetBattleType);

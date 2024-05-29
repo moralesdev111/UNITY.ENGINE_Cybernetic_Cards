@@ -18,7 +18,7 @@ public class Drag : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHand
 	public void OnBeginDrag(PointerEventData eventData)
 	{
 		cardInstance = GetComponent<CardInstance>();
-		if(cardInstance.GetCurrentCardState != CardInstance.CardState.battlefield && cardInstance.card.manaCost <= gameSettings.currentMana)
+		if(cardInstance.GetCurrentCardState != CardInstance.CardState.battlefield && cardInstance.card.manaCost <= gameSettings.currentMana && tag != "Opponent")
 		{// if card is not in battlefield and we have enough mana we can drag
 			canDrag = true;
 			originalParent = transform.parent;

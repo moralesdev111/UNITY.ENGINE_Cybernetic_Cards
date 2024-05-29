@@ -18,19 +18,19 @@ public class OpponentHand : SlotContainer
 	{
 		if(DataManager.Instance.BattleTypeEnum.GetBattleType == BattleTypeEnum.BattleType.Wild)
 		{
-			int opponentDeckCount = battlefield.GetWildParty.Container.Count;
+			int opponentDeckCount = battlefield.GetOpponentParty.Container.Count;
 			int cardsToSpawn = Mathf.Min(1, opponentDeckCount);
 
 			if (opponentDeckCount > 0)
 			{
+				Container.Clear();
 				for (int i = 0; i < cardsToSpawn; i++)
 				{
-					Container.Clear();
-					Card card = battlefield.GetWildParty.RandomizeWildCard();
+					Card card = battlefield.GetOpponentParty.RandomizeWildCard();
 					GameObject opponentCard = Instantiate(battlefield.GetCardPrefab, battlefield.GetOpponentHandTransform);
 					opponentCard.GetComponent<CardInstance>().card = card;
 					opponentCard.GetComponent<CardInstance>().SetCurrentCardState(CardInstance.CardState.hand);
-					battlefield.GetWildParty.Container[0] = card;
+					battlefield.GetOpponentParty.Container[0] = card;
 					Container.Add(card);
 					instantiatedCards.Add(opponentCard);
 					opponentCard.tag = tagName;
@@ -39,19 +39,19 @@ public class OpponentHand : SlotContainer
 		}
 		else if(DataManager.Instance.BattleTypeEnum.GetBattleType == BattleTypeEnum.BattleType.Trainer)
 		{
-			int opponentDeckCount = DataManager.Instance.TrainerParty.Container.Count;
+			int opponentDeckCount = DataManager.Instance.OpponentPartyCards.Container.Count;
 			int cardsToSpawn = Mathf.Max(1, opponentDeckCount);
 
 			if (opponentDeckCount > 0)
 			{
+				Container.Clear();
 				for (int i = 0; i < cardsToSpawn; i++)
 				{
-					Container.Clear();
-					Card card = DataManager.Instance.TrainerParty.Container[i];
+					Card card = DataManager.Instance.OpponentPartyCards.Container[i];
 					GameObject opponentCard = Instantiate(battlefield.GetCardPrefab, battlefield.GetOpponentHandTransform);
 					opponentCard.GetComponent<CardInstance>().card = card;
 					opponentCard.GetComponent<CardInstance>().SetCurrentCardState(CardInstance.CardState.hand);
-					DataManager.Instance.TrainerParty.Container[i] = card;
+					DataManager.Instance.OpponentPartyCards.Container[i] = card;
 					Container.Add(card);
 					instantiatedCards.Add(opponentCard);
 					opponentCard.tag = tagName;

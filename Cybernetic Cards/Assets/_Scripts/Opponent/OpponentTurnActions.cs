@@ -94,6 +94,7 @@ public class OpponentTurnActions : MonoBehaviour
 				AssignCardInstance(chosenCard, physicalCard);
 				opponentHand.Container.Remove(chosenCard);
 				opponentHand.GetInstantiatedCards().Remove(physicalCard);
+				turnSystemSettings.opponentCurrentMana -= chosenCard.manaCost;
 				break;
 			}
 		}

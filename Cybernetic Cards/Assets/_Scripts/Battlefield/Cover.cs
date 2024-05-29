@@ -16,12 +16,16 @@ public class Cover : MonoBehaviour, IPointerClickHandler
 		}
 	}
 
-	public int maxHealth = 2;
+	public int maxHealth = 3;
 	public bool hasTresspassed = false;
 	[SerializeField] private Battlefield battlefield;
 
 	void Start()
 	{
+		if(DataManager.Instance.BattleTypeEnum.GetBattleType == BattleTypeEnum.BattleType.Trainer)
+		{
+			gameObject.SetActive(false);
+		}
 		currentHealth = maxHealth;
 		onHealthChanged += OnHealthChanged;
 	}
@@ -36,6 +40,7 @@ public class Cover : MonoBehaviour, IPointerClickHandler
 		if (currentHealth < 1)
 		{
 			hasTresspassed = true;
+			gameObject.SetActive(false);
 		}
 	}
 

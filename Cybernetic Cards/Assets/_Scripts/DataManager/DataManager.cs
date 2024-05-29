@@ -14,7 +14,7 @@ public class DataManager : MonoBehaviour
 	private GameObject trainer;
 	public GameObject Trainer { get { return trainer; }  set { trainer = value; } }
 	[SerializeField] private TrainerParty trainerParty;
-	public TrainerParty TrainerParty
+	public TrainerParty OpponentPartyCards
 	{
 		get { return trainerParty; }
 		set { trainerParty = value; }

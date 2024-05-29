@@ -13,10 +13,6 @@ public class TurnActions : MonoBehaviour
 	[SerializeField] private TurnSystemSettings turnSystemSettings;
 	[SerializeField] private EndTurnLogistics endTurnLogistics;
 
-	// Define a delegate for the end of turn
-	public delegate void EndTurnDelegate(bool opponentTurn);
-	public EndTurnDelegate onEndTurn;
-
 	void Update()
 	{
 		UpdateManaText();
@@ -32,7 +28,6 @@ public class TurnActions : MonoBehaviour
 		{
 			endTurnLogistics.LogisticsForPlayer();
 		}
-		onEndTurn?.Invoke(!turnSystemSettings.isPlayerTurn);
 	}
 
 	private void UpdateManaText()

@@ -15,12 +15,14 @@ public class Battlefield : MonoBehaviour
 	[SerializeField]private OpponentHand opponentHand;
 	public OpponentHand GetOpponentHand { get { return opponentHand; } }
 	private WildParty wildParty;
-	public WildParty GetWildParty { get {  return wildParty; } }
+	public WildParty GetOpponentParty { get {  return wildParty; } }
 	private Transform myTransform;
 	[SerializeField] private TurnSystemSettings gameSettings;
 	public TurnSystemSettings GetGameSettings { get {  return gameSettings; } }
 	[SerializeField] private Transform opponentBattlefield;
 	public Transform GetOpponentBattlefield { get { return opponentBattlefield; } }
+	[SerializeField] private Transform playerBattlefield;
+	public Transform GetPlayerBattlefield { get { return playerBattlefield; } }
 
 	private Transform cover;
 	public Transform GetCover { get { return cover; } }
@@ -47,7 +49,7 @@ public class Battlefield : MonoBehaviour
 
 	private void Update()
 	{
-		if(opponentHand.Container.Count == 0 && opponentBattlefield.transform.childCount == 0) 
+		if(opponentHand.Container.Count == 0 && opponentBattlefield.transform.childCount == 0 || playerHand.Container.Count == 0 && playerBattlefield.transform.childCount == 0) 
 		{
 			DataManager.Instance.GetSceneHandling.LoadScene(0);
 		}

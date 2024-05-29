@@ -38,7 +38,6 @@ public class EndTurnLogistics : MonoBehaviour
 
 		turnSystemSettings.opponentMaxMana += 1;
 		turnSystemSettings.opponentCurrentMana = turnSystemSettings.opponentMaxMana;
-
 		turnSystemSettings.startTurn = false;
 
 		turnState.currentTurnState = TurnState.TurnStates.opponentTurn;
