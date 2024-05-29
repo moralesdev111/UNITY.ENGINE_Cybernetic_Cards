@@ -123,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggereable: 0
+  opponentPartyCards: {fileID: 11400000, guid: 386a7b449d9f026448fd3652ffbe899b, type: 2}
 --- !u!65 &2515122434423680745
 BoxCollider:
   m_ObjectHideFlags: 0

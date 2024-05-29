@@ -8,6 +8,7 @@ public class TriggerTrainerEncounter : MonoBehaviour
 	public bool triggereable = false;
 	private Coroutine checkKeyInputCoroutine;
 	private GameObject player;
+	[SerializeField] public TrainerParty opponentPartyCards;
 
 	private void OnTriggerEnter(Collider other)
 	{
@@ -25,7 +26,9 @@ public class TriggerTrainerEncounter : MonoBehaviour
 		{
 			player = null;
 			triggereable = false;
-			if(checkKeyInputCoroutine != null)
+			DataManager.Instance.Trainer = null;
+			DataManager.Instance.TrainerParty = null;
+			if (checkKeyInputCoroutine != null)
 			{
 				StopCoroutine(checkKeyInputCoroutine);
 				checkKeyInputCoroutine = null;
@@ -41,8 +44,12 @@ public class TriggerTrainerEncounter : MonoBehaviour
 			{
 				if (player != null)
 				{
+					DataManager.Instance.BattleTypeEnum.SetBattleType(BattleType.Trainer);
+					DataManager.Instance.Trainer = this.gameObject;
+					DataManager.Instance.TrainerParty = opponentPartyCards;
 					player.GetComponent<Player>().SetOverridePlayerControls(true);
 					StartCoroutine(WaitAndLoadBattleScene());
+					Debug.Log(DataManager.Instance.BattleTypeEnum.GetBattleType);
 				}
 			}
 			yield return null;
@@ -52,7 +59,6 @@ public class TriggerTrainerEncounter : MonoBehaviour
 	private IEnumerator WaitAndLoadBattleScene()
 	{
 		yield return new WaitForSeconds(1.5f);
-		DataManager.Instance.BattleTypeEnum.SetBattleType(BattleType.Trainer);
 		DataManager.Instance.GetSceneHandling.LoadScene(1);
 	}
 }

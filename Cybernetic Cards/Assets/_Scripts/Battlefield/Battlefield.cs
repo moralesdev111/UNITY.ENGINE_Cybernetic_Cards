@@ -14,8 +14,8 @@ public class Battlefield : MonoBehaviour
 	public PlayerHand GetPlayerHand { get { return playerHand; } }
 	[SerializeField]private OpponentHand opponentHand;
 	public OpponentHand GetOpponentHand { get { return opponentHand; } }
-	private OpponentParty opponentParty;
-	public OpponentParty GetOpponentParty { get {  return opponentParty; } }
+	private WildParty wildParty;
+	public WildParty GetWildParty { get {  return wildParty; } }
 	private Transform myTransform;
 	[SerializeField] private TurnSystemSettings gameSettings;
 	public TurnSystemSettings GetGameSettings { get {  return gameSettings; } }
@@ -26,10 +26,7 @@ public class Battlefield : MonoBehaviour
 	public Transform GetCover { get { return cover; } }
 	[SerializeField] private TurnState turnState;
 	public TurnState TurnState { get { return turnState; } }
-
 	
-	
-
 
 	private void OnEnable()
 	{
@@ -44,7 +41,7 @@ public class Battlefield : MonoBehaviour
 
 	private void Start()
 	{
-		opponentParty = GameObject.FindObjectOfType<OpponentParty>();
+		wildParty = GameObject.FindObjectOfType<WildParty>();
 		InstantiatePlayerAndOpponentCards();
 	}
 
@@ -63,7 +60,7 @@ public class Battlefield : MonoBehaviour
 
 	private void InstantiatePlayerAndOpponentCards()
 	{
-		if (DataManager.Instance && DataManager.Instance.BattleTypeEnum.GetBattleType == BattleTypeEnum.BattleType.Wild)
+		if (DataManager.Instance)
 		{
 			playerHand.HandSetup();
 			opponentHand.HandSetup();

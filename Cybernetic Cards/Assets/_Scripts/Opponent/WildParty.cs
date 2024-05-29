@@ -2,18 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OpponentParty : SlotContainer
+public class WildParty : SlotContainer
 {
 	[SerializeField] private CardCodex cardCodex;
-	public Card card;
 
 	private void Start()
 	{
 		ContainerSizeLimit = 5;
 	}
 
-	public Card RandomizeOpponentCard() // update to the battletrigger to randomize this classes container
+	public Card RandomizeWildCard() // update to the battletrigger to randomize this classes container
 	{
+		Card card = null;
 		int randomNumber = Random.Range(0, 3);
 		switch (randomNumber)
 		{
@@ -28,13 +28,5 @@ public class OpponentParty : SlotContainer
 				break;
 		}
 		return card;
-	}
-
-	public void RemoveCard(Card card)
-	{
-		if (card && Container.Contains(card))
-		{
-			Container.Remove(card);
-		}
 	}
 }

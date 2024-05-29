@@ -839,9 +839,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1148016067911747454, guid: cf80ecd3c001c3e4bbcdfb7a83d91532, type: 3}
+      propertyPath: opponentPartyCards
+      value: 
+      objectReference: {fileID: 11400000, guid: cdb948d70356b7748a107df9c863c97e, type: 2}
+    - target: {fileID: 2937172462441184620, guid: cf80ecd3c001c3e4bbcdfb7a83d91532, type: 3}
+      propertyPath: container.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2937172462441184620, guid: cf80ecd3c001c3e4bbcdfb7a83d91532, type: 3}
+      propertyPath: container.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: f92e5fe1bb93d2f49aab184575a052d0, type: 2}
+    - target: {fileID: 2937172462441184620, guid: cf80ecd3c001c3e4bbcdfb7a83d91532, type: 3}
+      propertyPath: container.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: f92e5fe1bb93d2f49aab184575a052d0, type: 2}
+    - target: {fileID: 2937172462441184620, guid: cf80ecd3c001c3e4bbcdfb7a83d91532, type: 3}
+      propertyPath: container.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7021e9e7ee4b29b468ef6a42c095eb28, type: 2}
     - target: {fileID: 6051607245560641348, guid: cf80ecd3c001c3e4bbcdfb7a83d91532, type: 3}
       propertyPath: m_Name
-      value: AI
+      value: AIb
       objectReference: {fileID: 0}
     - target: {fileID: 6390731113268129278, guid: cf80ecd3c001c3e4bbcdfb7a83d91532, type: 3}
       propertyPath: m_LocalPosition.x
@@ -883,7 +903,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2937172462441184620, guid: cf80ecd3c001c3e4bbcdfb7a83d91532, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -2658,9 +2679,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1148016067911747454, guid: cf80ecd3c001c3e4bbcdfb7a83d91532, type: 3}
+      propertyPath: opponentPartyCards
+      value: 
+      objectReference: {fileID: 11400000, guid: 386a7b449d9f026448fd3652ffbe899b, type: 2}
     - target: {fileID: 6051607245560641348, guid: cf80ecd3c001c3e4bbcdfb7a83d91532, type: 3}
       propertyPath: m_Name
-      value: AI
+      value: AIa
       objectReference: {fileID: 0}
     - target: {fileID: 6390731113268129278, guid: cf80ecd3c001c3e4bbcdfb7a83d91532, type: 3}
       propertyPath: m_LocalPosition.x

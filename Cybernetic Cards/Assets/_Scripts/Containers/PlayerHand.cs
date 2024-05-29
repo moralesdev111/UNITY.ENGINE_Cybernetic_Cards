@@ -33,12 +33,4 @@ public class PlayerHand : SlotContainer
 			Debug.Log("Deck Empty");
 		}
 	}
-
-	public void RemoveCard(Card card)
-	{
-		if (card && Container.Contains(card))
-		{
-			Container.Remove(card);
-		}
-	}
 }

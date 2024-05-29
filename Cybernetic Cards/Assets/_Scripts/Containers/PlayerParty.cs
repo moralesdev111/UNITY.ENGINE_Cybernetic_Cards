@@ -9,12 +9,4 @@ public class PlayerParty : SlotContainer
 	{
 		ContainerSizeLimit = 5;
 	}
-
-	public void RemoveCard(Card card)
-    {
-		if (card && Container.Contains(card))
-		{
-			Container.Remove(card);
-		}
-	}
 }

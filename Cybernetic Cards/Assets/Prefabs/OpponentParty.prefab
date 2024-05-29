@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6282243570653975569}
-  - component: {fileID: 3266266006461581510}
   - component: {fileID: 2866508851637365047}
+  - component: {fileID: 2246432071848318323}
   m_Layer: 0
   m_Name: OpponentParty
   m_TagString: Untagged
@@ -33,22 +33,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3266266006461581510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 167011693399098625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c510ffceb8d3a0479097719f8a99657, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  container:
-  - {fileID: 11400000, guid: a13c836b9d4d07b4ea05015165e0cfb2, type: 2}
-  cardCodex: {fileID: 11400000, guid: 33a8b2ba57a22614bac87c0990ab0d28, type: 2}
-  card: {fileID: 0}
 --- !u!114 &2866508851637365047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,10 +46,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   turnState: {fileID: 0}
-  gameSettings: {fileID: 0}
+  turnSystemSettings: {fileID: 0}
   opponentHand: {fileID: 0}
   opponentBattlefield: {fileID: 0}
   playerBattlefield: {fileID: 0}
   turnManager: {fileID: 0}
-  readyToAttack: 0
-  attackExecuted: 0
+--- !u!114 &2246432071848318323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 167011693399098625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aae9232a9177de44ba9ed8fb0b631ba9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  container: []
+  cardCodex: {fileID: 11400000, guid: 33a8b2ba57a22614bac87c0990ab0d28, type: 2}

@@ -788,6 +788,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OpponentParty
       objectReference: {fileID: 0}
+    - target: {fileID: 2246432071848318323, guid: a6bf708368bd089498bf6eda11d6d701, type: 3}
+      propertyPath: container.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2866508851637365047, guid: a6bf708368bd089498bf6eda11d6d701, type: 3}
       propertyPath: turnState
       value: 
@@ -796,10 +800,6 @@ PrefabInstance:
       propertyPath: turnManager
       value: 
       objectReference: {fileID: 2606183428422624765}
-    - target: {fileID: 2866508851637365047, guid: a6bf708368bd089498bf6eda11d6d701, type: 3}
-      propertyPath: gameSettings
-      value: 
-      objectReference: {fileID: 2606183428422624767}
     - target: {fileID: 2866508851637365047, guid: a6bf708368bd089498bf6eda11d6d701, type: 3}
       propertyPath: opponentHand
       value: 

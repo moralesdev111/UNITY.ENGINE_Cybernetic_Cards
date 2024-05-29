@@ -16,31 +16,47 @@ public class OpponentHand : SlotContainer
 
 	public void HandSetup()
 	{
-		int opponentDeckCount = battlefield.GetOpponentParty.Container.Count;
-		int cardsToSpawn = Mathf.Min(1, opponentDeckCount);
-
-		if (opponentDeckCount > 0)
+		if(DataManager.Instance.BattleTypeEnum.GetBattleType == BattleTypeEnum.BattleType.Wild)
 		{
-			for (int i = 0; i < cardsToSpawn; i++)
+			int opponentDeckCount = battlefield.GetWildParty.Container.Count;
+			int cardsToSpawn = Mathf.Min(1, opponentDeckCount);
+
+			if (opponentDeckCount > 0)
 			{
-				Container.Clear();
-				Card card = battlefield.GetOpponentParty.RandomizeOpponentCard();
-				GameObject opponentCard = Instantiate(battlefield.GetCardPrefab, battlefield.GetOpponentHandTransform);
-				opponentCard.GetComponent<CardInstance>().card = card;
-				opponentCard.GetComponent<CardInstance>().SetCurrentCardState(CardInstance.CardState.hand);
-				battlefield.GetOpponentParty.Container[0] = card;
-				Container.Add(card);
-				instantiatedCards.Add(opponentCard);
-				opponentCard.tag = tagName;
+				for (int i = 0; i < cardsToSpawn; i++)
+				{
+					Container.Clear();
+					Card card = battlefield.GetWildParty.RandomizeWildCard();
+					GameObject opponentCard = Instantiate(battlefield.GetCardPrefab, battlefield.GetOpponentHandTransform);
+					opponentCard.GetComponent<CardInstance>().card = card;
+					opponentCard.GetComponent<CardInstance>().SetCurrentCardState(CardInstance.CardState.hand);
+					battlefield.GetWildParty.Container[0] = card;
+					Container.Add(card);
+					instantiatedCards.Add(opponentCard);
+					opponentCard.tag = tagName;
+				}
 			}
 		}
-	}
-
-	public void RemoveCard(Card card)
-	{
-		if (card && Container.Contains(card))
+		else if(DataManager.Instance.BattleTypeEnum.GetBattleType == BattleTypeEnum.BattleType.Trainer)
 		{
-			Container.Remove(card);
+			int opponentDeckCount = DataManager.Instance.TrainerParty.Container.Count;
+			int cardsToSpawn = Mathf.Max(1, opponentDeckCount);
+
+			if (opponentDeckCount > 0)
+			{
+				for (int i = 0; i < cardsToSpawn; i++)
+				{
+					Container.Clear();
+					Card card = DataManager.Instance.TrainerParty.Container[i];
+					GameObject opponentCard = Instantiate(battlefield.GetCardPrefab, battlefield.GetOpponentHandTransform);
+					opponentCard.GetComponent<CardInstance>().card = card;
+					opponentCard.GetComponent<CardInstance>().SetCurrentCardState(CardInstance.CardState.hand);
+					DataManager.Instance.TrainerParty.Container[i] = card;
+					Container.Add(card);
+					instantiatedCards.Add(opponentCard);
+					opponentCard.tag = tagName;
+				}
+			}
 		}
 	}
 
@@ -48,5 +64,4 @@ public class OpponentHand : SlotContainer
 	{
 		return instantiatedCards;
 	}
-
 }

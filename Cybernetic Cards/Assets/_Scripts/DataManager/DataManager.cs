@@ -11,6 +11,14 @@ public class DataManager : MonoBehaviour
     public PlayerParty GetPlayerParty { get { return playerParty; } }
     [SerializeField] private BattleTypeEnum battleTypeEnum;
 	public BattleTypeEnum BattleTypeEnum { get {  return battleTypeEnum; } }
+	private GameObject trainer;
+	public GameObject Trainer { get { return trainer; }  set { trainer = value; } }
+	[SerializeField] private TrainerParty trainerParty;
+	public TrainerParty TrainerParty
+	{
+		get { return trainerParty; }
+		set { trainerParty = value; }
+	}
 
 
 	// Start is called before the first frame update
