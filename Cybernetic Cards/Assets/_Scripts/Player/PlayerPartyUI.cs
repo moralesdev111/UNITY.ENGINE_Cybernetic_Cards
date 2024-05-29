@@ -7,6 +7,7 @@ public class PlayerPartyUI : MonoBehaviour
 {
     [SerializeField] private GameObject slotPrefab;    
     [SerializeField] private PlayerParty playerParty;
+	[SerializeField] private HealthCenter healthCenter;
 	private Transform slotPrefabParentTransform;
 	private Transform myTransform;
 
@@ -15,15 +16,18 @@ public class PlayerPartyUI : MonoBehaviour
 	{
 		if(playerParty != null)
 		{
+			healthCenter.needToRedrawUI = true;
 			myTransform = transform;
 			slotPrefabParentTransform = myTransform.GetChild(0).GetChild(0);
 			DataManager.Instance.GetSceneHandling.onSandboxSceneLoaded += UpdatePartySlotUI;
+			healthCenter.onHealthCenterEntered += UpdatePartySlotUI;
 		}
 	}
 
 	private void OnDisable()
 	{
 		DataManager.Instance.GetSceneHandling.onSandboxSceneLoaded -= UpdatePartySlotUI;
+		healthCenter.onHealthCenterEntered -= UpdatePartySlotUI;
 	}
 
 	private void UpdatePartySlotUI()
@@ -36,10 +40,15 @@ public class PlayerPartyUI : MonoBehaviour
 
 	private void SetPartyUI()
 	{
-		for (int i = 0; i < playerParty.Container.Count; i++)
+		if(healthCenter.needToRedrawUI)
 		{
-			GameObject physicalCard = Instantiate(slotPrefab, slotPrefabParentTransform); // instantiate party inventory
-			physicalCard.GetComponent<Image>().sprite = playerParty.Container[i].artwork; // set artwork slot
+			for (int i = 0; i < playerParty.Container.Count; i++)
+			{
+				GameObject physicalCard = Instantiate(slotPrefab, slotPrefabParentTransform); // instantiate party inventory
+				physicalCard.GetComponent<Image>().sprite = playerParty.Container[i].artwork; // set artwork slot
+			}
+			healthCenter.needToRedrawUI = false;
 		}
+		
 	}
 }
