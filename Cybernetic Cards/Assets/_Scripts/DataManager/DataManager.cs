@@ -21,6 +21,7 @@ public class DataManager : MonoBehaviour
 	}
 	[SerializeField] private PlayerGraveyard playerGraveyard;
 	public PlayerGraveyard GetPlayerGraveyard { get { return playerGraveyard; } }
+	public Vector3 playerLoadPosition;
 
 
 	// Start is called before the first frame update
@@ -38,6 +39,10 @@ public class DataManager : MonoBehaviour
 		if(Input.GetKey(KeyCode.Space))
 		{
 			sceneHandling.LoadScene(1);
+		}
+		if (Input.GetKey(KeyCode.Escape))
+		{
+			sceneHandling.LoadScene(0);
 		}
 	}
 }

@@ -7,10 +7,17 @@ using static BattleTypeEnum;
 public class TriggerRandomEncounter : MonoBehaviour
 {
     private string targetType = "Player";
+	private Collider playerCollider;
 
 	private void OnTriggerEnter(Collider other)
 	{
+		playerCollider = other;
 		PossibleBattleEncounter(other);
+	}
+
+	private void OnTriggerExit(Collider other)
+	{
+		playerCollider = null;
 	}
 
 	private void PossibleBattleEncounter(Collider other)
@@ -24,6 +31,7 @@ public class TriggerRandomEncounter : MonoBehaviour
 				{
 					DataManager.Instance.BattleTypeEnum.SetBattleType(BattleType.Wild);
 					player.SetOverridePlayerControls(true);
+					DataManager.Instance.playerLoadPosition = other.transform.position;
 					StartCoroutine(WaitAndLoadBattleScene());
 					Debug.Log(DataManager.Instance.BattleTypeEnum.GetBattleType);
 				}

@@ -50,6 +50,8 @@ MonoBehaviour:
   battleTypeEnum: {fileID: 8168908179064225139, guid: 9f22448df7571e84a8279c9f0e72f52e, type: 3}
   trainerParty: {fileID: 0}
   playerGraveyard: {fileID: 5039688201000563146}
+  playerLoadPosition: {x: 0, y: 0, z: 0}
+  player: {fileID: 8287260519340564985, guid: dc98e5cf5d003f64fa7821465413b1b7, type: 3}
 --- !u!114 &5039688201000563146
 MonoBehaviour:
   m_ObjectHideFlags: 0

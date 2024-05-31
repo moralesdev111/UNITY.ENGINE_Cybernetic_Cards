@@ -36,6 +36,10 @@ public class OpponentHand : SlotContainer
 					opponentCard.tag = tagName;
 				}
 			}
+			else
+			{
+				Debug.Log("No Deck Detected");
+			}
 		}
 		else if(DataManager.Instance.BattleTypeEnum.GetBattleType == BattleTypeEnum.BattleType.Trainer)
 		{

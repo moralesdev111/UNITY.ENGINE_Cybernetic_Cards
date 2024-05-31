@@ -11,7 +11,7 @@ public class WildParty : SlotContainer
 		ContainerSizeLimit = 5;
 	}
 
-	public Card RandomizeWildCard() // update to the battletrigger to randomize this classes container
+	public Card RandomizeWildCard() 
 	{
 		Card card = null;
 		int randomNumber = Random.Range(0, 3);

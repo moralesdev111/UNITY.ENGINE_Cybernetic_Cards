@@ -9,10 +9,12 @@ public class TriggerTrainerEncounter : MonoBehaviour
 	private Coroutine checkKeyInputCoroutine;
 	private GameObject player;
 	[SerializeField] public TrainerParty opponentPartyCards;
+	private Collider playerCollider;
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if(other.CompareTag("Player"))
+		playerCollider = other;
+		if (other.CompareTag("Player"))
 		{
 			player = other.gameObject;
 			triggereable = true;
@@ -20,11 +22,13 @@ public class TriggerTrainerEncounter : MonoBehaviour
 		}
 	}
 
+
 	private void OnTriggerExit(Collider other)
 	{
 		if (other.CompareTag("Player"))
 		{
 			player = null;
+			playerCollider = null;
 			triggereable = false;
 			DataManager.Instance.Trainer = null;
 			DataManager.Instance.OpponentPartyCards = null;
@@ -47,6 +51,7 @@ public class TriggerTrainerEncounter : MonoBehaviour
 					DataManager.Instance.BattleTypeEnum.SetBattleType(BattleType.Trainer);
 					DataManager.Instance.Trainer = this.gameObject;
 					DataManager.Instance.OpponentPartyCards = opponentPartyCards;
+					DataManager.Instance.playerLoadPosition = playerCollider.transform.position;
 					player.GetComponent<Player>().SetOverridePlayerControls(true);
 					StartCoroutine(WaitAndLoadBattleScene());
 					Debug.Log(DataManager.Instance.BattleTypeEnum.GetBattleType);

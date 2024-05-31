@@ -15,6 +15,10 @@ public class PlayerMovement : MonoBehaviour
 	private Transform playerTransform;
 	public Transform GetPlayerTransfom { get { return playerTransform; } }
 
+	private void Awake()
+	{
+		DataManager.Instance.GetSceneHandling.onSandboxSceneLoaded += PositionPlayer;
+	}
 	// Start is called before the first frame update
 	void Start()
     {
@@ -23,6 +27,11 @@ public class PlayerMovement : MonoBehaviour
         groundCheck = transform.GetChild(2).GetComponent<Transform>();
 		playerTransform = transform;
 
+	}
+
+	private void OnDisable()
+	{
+		DataManager.Instance.GetSceneHandling.onSandboxSceneLoaded -= PositionPlayer;
 	}
 
 	public void HandleMovement()
@@ -59,6 +68,15 @@ public class PlayerMovement : MonoBehaviour
 		if (isGrounded && velocity.y < 0)
 		{
 			velocity.y = -2.0f;
+		}
+	}
+
+	private void PositionPlayer()
+	{
+		if(DataManager.Instance.playerLoadPosition != new Vector3(0,0,0))
+		{
+			transform.position = DataManager.Instance.playerLoadPosition;
+			Debug.Log("Load Player Position");
 		}
 	}
 }
