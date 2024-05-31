@@ -5,50 +5,67 @@ using UnityEngine.UI;
 
 public class PlayerPartyUI : MonoBehaviour
 {
-    [SerializeField] private GameObject slotPrefab;    
-    [SerializeField] private PlayerParty playerParty;
+	[SerializeField] private GameObject slotPrefab;
+	[SerializeField] private PlayerParty playerParty;
 	[SerializeField] private HealthCenter healthCenter;
 	private Transform slotPrefabParentTransform;
 	private Transform myTransform;
-
+	private bool needToRedrawUI = true;
 
 	private void OnEnable()
 	{
-		if(playerParty != null)
+		if (playerParty != null)
 		{
-			healthCenter.needToRedrawUI = true;
 			myTransform = transform;
 			slotPrefabParentTransform = myTransform.GetChild(0).GetChild(0);
-			DataManager.Instance.GetSceneHandling.onSandboxSceneLoaded += UpdatePartySlotUI;
-			healthCenter.onHealthCenterEntered += UpdatePartySlotUI;
+			DataManager.Instance.GetSceneHandling.onSandboxSceneLoaded += DrawUI;
+			healthCenter.onHealthCenterEntered += DrawUI;
 		}
 	}
 
 	private void OnDisable()
 	{
-		DataManager.Instance.GetSceneHandling.onSandboxSceneLoaded -= UpdatePartySlotUI;
-		healthCenter.onHealthCenterEntered -= UpdatePartySlotUI;
+		DataManager.Instance.GetSceneHandling.onSandboxSceneLoaded -= DrawUI;
+		healthCenter.onHealthCenterEntered -= DrawUI;
 	}
 
-	private void UpdatePartySlotUI()
-	{		
-		if(playerParty != null)
-		{
-			SetPartyUI();
-		}
-	}
-
-	private void SetPartyUI()
+	private void DrawUI()
 	{
-		if(healthCenter.needToRedrawUI)
+		needToRedrawUI = true;
+		if (playerParty != null)
 		{
-			for (int i = 0; i < playerParty.Container.Count; i++)
+			if (needToRedrawUI)
 			{
-				GameObject physicalCard = Instantiate(slotPrefab, slotPrefabParentTransform); // instantiate party inventory
-				physicalCard.GetComponent<Image>().sprite = playerParty.Container[i].artwork; // set artwork slot
+				if (!healthCenter.HealthUIRedraw)
+				{
+					SceneRedrawUI();
+				}
+				else
+				{
+					HealthCenterRedrawUI();
+				}
 			}
-			healthCenter.needToRedrawUI = false;
 		}
-		
+	}
+
+	private void HealthCenterRedrawUI()
+	{
+		for (int i = 0; i < healthCenter.RemovedCards.Count; i++)
+		{
+			GameObject physicalCard = Instantiate(slotPrefab, slotPrefabParentTransform);
+			physicalCard.GetComponent<Image>().sprite = playerParty.Container[i].artwork;
+			healthCenter.HealthUIRedraw = false;
+			needToRedrawUI = false;
+		}
+	}
+
+	private void SceneRedrawUI()
+	{
+		for (int i = 0; i < playerParty.Container.Count; i++)
+		{
+			GameObject physicalCard = Instantiate(slotPrefab, slotPrefabParentTransform);
+			physicalCard.GetComponent<Image>().sprite = playerParty.Container[i].artwork;
+			needToRedrawUI = false;
+		}
 	}
 }
