@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using static BattleTypeEnum;
 
@@ -10,6 +11,7 @@ public class TriggerTrainerEncounter : MonoBehaviour
 	private GameObject player;
 	[SerializeField] public TrainerParty opponentPartyCards;
 	private Collider playerCollider;
+	[SerializeField] private TextMeshProUGUI encounterText = null;
 
 	private void OnTriggerEnter(Collider other)
 	{
@@ -63,7 +65,9 @@ public class TriggerTrainerEncounter : MonoBehaviour
 
 	private IEnumerator WaitAndLoadBattleScene()
 	{
+		encounterText.text = "Trainer Encounter!";
 		yield return new WaitForSeconds(1.5f);
+		encounterText.text = null;
 		DataManager.Instance.GetSceneHandling.LoadScene(1);
 	}
 }

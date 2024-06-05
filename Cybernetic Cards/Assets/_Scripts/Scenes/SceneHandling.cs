@@ -39,12 +39,16 @@ public class SceneHandling : ScriptableObject
 	private void BattleSceneLoadActions()
 	{
 		onBattleSceneLoaded();
+		Cursor.lockState = CursorLockMode.None;
+		Cursor.visible = true;
 		Debug.Log("Scene1 load");
 	}
 
 	private void SandboxSceneLoadActions()
 	{
 		onSandboxSceneLoaded();
+		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
 		Debug.Log("Scene0 load");
 	}
 }

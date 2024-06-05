@@ -63,5 +63,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aae9232a9177de44ba9ed8fb0b631ba9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  container: []
+  container:
+  - {fileID: 0}
   cardCodex: {fileID: 11400000, guid: 33a8b2ba57a22614bac87c0990ab0d28, type: 2}

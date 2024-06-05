@@ -1506,6 +1506,7 @@ MonoBehaviour:
   opponentHand: {fileID: 7399454944625602229}
   gameSettings: {fileID: 0}
   opponentBattlefield: {fileID: 6985795690897859895}
+  playerBattlefield: {fileID: 4427796486923079849}
   turnState: {fileID: 0}
 --- !u!114 &8168908179064225139
 MonoBehaviour:

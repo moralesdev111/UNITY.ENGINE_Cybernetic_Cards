@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
 	private Transform playerTransform;
 	public Transform GetPlayerTransfom { get { return playerTransform; } }
 
+
 	private void Awake()
 	{
 		DataManager.Instance.GetSceneHandling.onSandboxSceneLoaded += PositionPlayer;
@@ -22,11 +23,10 @@ public class PlayerMovement : MonoBehaviour
 	// Start is called before the first frame update
 	void Start()
     {
-        characterController = GetComponent<CharacterController>();
+		characterController = GetComponent<CharacterController>();
         groundMask = LayerMask.GetMask("Ground");
         groundCheck = transform.GetChild(2).GetComponent<Transform>();
 		playerTransform = transform;
-
 	}
 
 	private void OnDisable()
@@ -73,10 +73,8 @@ public class PlayerMovement : MonoBehaviour
 
 	private void PositionPlayer()
 	{
-		if(DataManager.Instance.playerLoadPosition != new Vector3(0,0,0))
-		{
-			transform.position = DataManager.Instance.playerLoadPosition;
-			Debug.Log("Load Player Position");
-		}
+		if (DataManager.Instance.playerLoadPosition == Vector3.zero) return;
+		transform.position = DataManager.Instance.playerLoadPosition;
+		Debug.Log("Load Player Position");
 	}
 }

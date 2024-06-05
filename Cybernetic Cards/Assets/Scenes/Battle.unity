@@ -545,10 +545,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 691660853034383606, guid: 9f22448df7571e84a8279c9f0e72f52e, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2195906436071043151, guid: 9f22448df7571e84a8279c9f0e72f52e, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -645,10 +641,6 @@ PrefabInstance:
       propertyPath: gameSettings
       value: 
       objectReference: {fileID: 2606183428422624767}
-    - target: {fileID: 4830814194475819898, guid: 9f22448df7571e84a8279c9f0e72f52e, type: 3}
-      propertyPath: playerBattlefield
-      value: 
-      objectReference: {fileID: 11995248}
     - target: {fileID: 6250236928800321301, guid: 9f22448df7571e84a8279c9f0e72f52e, type: 3}
       propertyPath: m_Name
       value: BattlefieldCanvas
@@ -795,10 +787,6 @@ PrefabInstance:
     - target: {fileID: 167011693399098625, guid: a6bf708368bd089498bf6eda11d6d701, type: 3}
       propertyPath: m_Name
       value: OpponentParty
-      objectReference: {fileID: 0}
-    - target: {fileID: 2246432071848318323, guid: a6bf708368bd089498bf6eda11d6d701, type: 3}
-      propertyPath: container.Array.size
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2866508851637365047, guid: a6bf708368bd089498bf6eda11d6d701, type: 3}
       propertyPath: turnState
